@@ -83,7 +83,7 @@
                 </div>
                 <div>
                     <p>
-                        I are Windmill bro. Yay!!!
+                        I are Windmill bro. Yolo!!!
                     </p>
                 </div>
 

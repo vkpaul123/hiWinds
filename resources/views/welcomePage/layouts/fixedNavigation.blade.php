@@ -13,9 +13,10 @@ Fixed Navigation
             
             <!-- logo -->
             <a class="navbar-brand" href="#body">
-                <h1 id="logo">
-                    <img src="{{ @asset('rawThemes/brandi/img/logo.png')}}" alt="Brandi">
-                </h1>
+                <h2 id="logo" style="padding-top: 10px;">
+                    &nbspHigh<strong>Winds</strong><span class="text-muted">|</span><small style="font-size: 0.5em;">monitoring LIVE!</small>
+                    {{-- <img height="27px" src="{{ @asset('rawThemes/brandi/img/logo.png')}}" alt="Brandi"> --}}
+                </h2>
             </a>
             <!-- /logo -->
         </div>

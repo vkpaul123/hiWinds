@@ -74,41 +74,45 @@ Features
 		<div class="row">
 
 			<div class="sec-title text-center mb50 wow bounceInDown animated" data-wow-duration="500ms">
-				<h2>Features</h2>
+				<h2>Log in</h2>
 				<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
 			</div>
 
 			<!-- service item -->
-			<div class="col-md-4 wow fadeInLeft" data-wow-duration="500ms">
+			<div class="col-md-6 wow fadeInLeft" data-wow-duration="500ms">
 				<div class="service-item">
 					<div class="service-icon">
-						<i class="fa fa-github fa-2x"></i>
+						<i class="fa fa-building fa-2x"></i>
 					</div>
 
 					<div class="service-desc">
-						<h3>Branding</h3>
+						<h3>Commercial</h3>
 						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore</p>
+						<br>
+						<a href="#" class="btn btn-lg btn-warning">Commercial<strong> Log In</strong></a>
 					</div>
 				</div>
 			</div>
 			<!-- end service item -->
 
 			<!-- service item -->
-			<div class="col-md-4 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="500ms">
+			<div class="col-md-6 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="500ms">
 				<div class="service-item">
 					<div class="service-icon">
-						<i class="fa fa-pencil fa-2x"></i>
+						<i class="fa fa-user fa-2x"></i>
 					</div>
 
 					<div class="service-desc">
-						<h3>Development</h3>
+						<h3>Personal</h3>
 						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore</p>
+						<br>
+						<a href="#" class="btn btn-lg btn-primary">Personal<strong> Log In</strong></a>
 					</div>
 				</div>
 			</div>
 			<!-- end service item -->
 
-			<!-- service item -->
+			{{-- <!-- service item -->
 			<div class="col-md-4 wow fadeInRight" data-wow-duration="500ms"  data-wow-delay="900ms">
 				<div class="service-item">
 					<div class="service-icon">
@@ -121,7 +125,7 @@ Features
 					</div>
 				</div>
 			</div>
-			<!-- end service item -->
+			<!-- end service item --> --}}
 
 		</div>
 	</div>
@@ -130,6 +134,7 @@ Features
 <!--
 End Features
 ==================================== -->
+
 
 
 <!--
@@ -261,7 +266,7 @@ Meet Our Team
 			<div class="sec-sub-title text-center wow fadeInRight animated" data-wow-duration="500ms">
 				<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore</p>
 			</div>
-
+			
 			<!-- single member -->
 			<figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms">
 				<div class="member-thumb">
@@ -276,7 +281,7 @@ Meet Our Team
 						</ul>
 					</figcaption>
 				</div>
-				<h4>John Filmr Doe</h4>
+				<h4>Pratiksha Sisodia</h4>
 				<span>Managing Director</span>
 			</figure>
 			<!-- end single member -->
@@ -295,7 +300,7 @@ Meet Our Team
 						</ul>
 					</figcaption>
 				</div>
-				<h4>Martin Matrone</h4>
+				<h4>Vikramsinh Dantkale</h4>
 				<span>Lead Developer</span>
 			</figure>
 			<!-- end single member -->
@@ -314,12 +319,12 @@ Meet Our Team
 						</ul>
 					</figcaption>
 				</div>
-				<h4>Steve Flaulkin</h4>
+				<h4>Jishnu Raj</h4>
 				<span>Sr. UI Designer</span>
 			</figure>
 			<!-- end single member -->
 
-			<!-- single member -->
+			{{-- <!-- single member -->
 			<figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="900ms">
 				<div class="member-thumb">
 					<img src="{{ @asset('rawThemes/brandi/img/team/member-1.png')}}" alt="Team Member" class="img-responsive">
@@ -336,7 +341,7 @@ Meet Our Team
 				<h4>John Filmr Doe</h4>
 				<span>Managing Director</span>
 			</figure>
-			<!-- end single member -->
+			<!-- end single member --> --}}
 
 		</div>
 	</div>
@@ -488,7 +493,11 @@ End Contact Us
 
 			<div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms">
 				<div class="footer-single">
-					<img src="{{ @asset('rawThemes/brandi/img/footer-logo.png')}}" alt="">
+					{{-- <img src="{{ @asset('rawThemes/brandi/img/footer-logo.png')}}" alt=""> --}}
+					<h2 id="logo" style="padding-top: 10px;">
+					    High<strong>Winds</strong>
+					    {{-- <img height="27px" src="{{ @asset('rawThemes/brandi/img/logo.png')}}" alt="Brandi"> --}}
+					</h2>
 					<p>eusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 				</div>
 			</div>
@@ -532,7 +541,7 @@ End Contact Us
 		<div class="row">
 			<div class="col-md-12">
 				<p class="copyright text-center">
-					Copyright © 2015 <a href="http://themefisher.com/">Themefisher</a>. All rights reserved. Designed & developed by <a href="http://themefisher.com/">Themefisher</a>
+					Copyright © 2018 <a href="{{ @url('http://highwinds.herokuapp.com') }}">HighWinds</a>. All rights reserved. Designed & developed by <a href="{{ @url('http://highwinds.herokuapp.com/#team') }}">HighWinds</a>
 				</p>
 			</div>
 		</div>

@@ -144,7 +144,11 @@ function initialize() {
         // icon: 'img/location-icon.png',
         title: '',
     });
-
+    google.maps.event.addDomListener(window, "resize", function() {
+ 			var center = map.getCenter();
+ 			google.maps.event.trigger(map, "resize");
+ 			map.setCenter(center);
+ 		});
 }
 
 google.maps.event.addDomListener(window, "load", initialize);

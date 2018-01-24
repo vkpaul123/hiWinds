@@ -4,9 +4,9 @@
 <!-- Page Title -->
 <title>HighWinds - @yield('title')</title>		
 <!-- Meta Description -->
-<meta name="description" content="Blue One Page Creative HTML5 Template">
-<meta name="keywords" content="one page, single page, onepage, responsive, parallax, creative, business, html5, css3, css3 animation">
-<meta name="author" content="Muhammad Morshed">
+<meta name="description" content="IOT Based monitoring system for Power generation by Wind-turbines on Highways.">
+<meta name="keywords" content="highwinds, high, winds, wind, turbines, highways, power, generation">
+<meta name="author" content="Vikramsinh Dantkale">
 <!-- Mobile Specific Meta -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 

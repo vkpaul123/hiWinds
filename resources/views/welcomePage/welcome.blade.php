@@ -82,14 +82,14 @@ Features
 			<div class="col-md-6 wow fadeInLeft" data-wow-duration="500ms">
 				<div class="service-item">
 					<div class="service-icon">
-						<i class="fa fa-building fa-2x"></i>
+						<i class="fa fa-building fa-2x text-success"></i>
 					</div>
 
 					<div class="service-desc">
-						<h3>Commercial</h3>
+						<h3><span class="text-success">Commercial</span></h3>
 						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore</p>
 						<br>
-						<a href="#" class="btn btn-lg btn-warning">Commercial<strong> Log In</strong></a>
+						<a href="/company" class="btn btn-lg btn-success">Commercial<strong> Log In</strong></a>
 					</div>
 				</div>
 			</div>
@@ -99,14 +99,14 @@ Features
 			<div class="col-md-6 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="500ms">
 				<div class="service-item">
 					<div class="service-icon">
-						<i class="fa fa-user fa-2x"></i>
+						<i class="fa fa-user fa-2x text-primary"></i>
 					</div>
 
 					<div class="service-desc">
-						<h3>Personal</h3>
+						<h3><span class="text-primary">Personal</span></h3>
 						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore</p>
 						<br>
-						<a href="#" class="btn btn-lg btn-primary">Personal<strong> Log In</strong></a>
+						<a href="/user" class="btn btn-lg btn-primary">Personal<strong> Log In</strong></a>
 					</div>
 				</div>
 			</div>

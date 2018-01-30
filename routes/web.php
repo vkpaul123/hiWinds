@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +14,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcomePage.welcome');
+    if(Auth::guest())
+    	return view('welcomePage.welcome');
+    else
+    	return redirect(route('home'));
+});
+
+Route::get('/welcome', function() {
+	return view('welcomePage.welcome');
 });
 
 Route::group(['namespace' => 'Admin'], function() {

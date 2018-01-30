@@ -27,7 +27,11 @@ Fixed Navigation
                 <li class="current"><a href="#body">Home</a></li>
                 <li><a href="#features">
                     <button class="btn btn-default btn-xs">
-                        <strong>Log In</strong>
+                        @guest
+                            <strong>Log In</strong>
+                        @else
+                            <strong>Your Dashboard</strong>
+                        @endguest
                     </button>
                 </a></li>
                 <li><a href="#works">Work</a></li>

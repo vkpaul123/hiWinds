@@ -89,7 +89,13 @@ Features
 						<h3><span class="text-success">Commercial</span></h3>
 						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore</p>
 						<br>
-						<a href="/login" class="btn btn-lg btn-success">Commercial<strong> Log In</strong></a>
+						<a href="/login" class="btn btn-lg btn-success">
+							@guest
+								Commercial<strong> Log In</strong>
+							@else
+								<strong>Your Dashboard</strong>
+							@endguest
+						</a>
 					</div>
 				</div>
 			</div>
@@ -99,14 +105,14 @@ Features
 			<div class="col-md-6 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="500ms">
 				<div class="service-item">
 					<div class="service-icon">
-						<i class="fa fa-user fa-2x text-primary"></i>
+						<i class="fa fa-user fa-2x text-muted"></i>
 					</div>
 
 					<div class="service-desc">
-						<h3><span class="text-primary">Casual</span></h3>
+						<h3><span class="text-muted">Casual</span></h3>
 						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore</p>
 						<br>
-						<a href="/user" class="btn btn-lg btn-primary">Casual Use</a>
+						<a href="/user" class="btn btn-lg btn-default">Casual Use</a>
 					</div>
 				</div>
 			</div>

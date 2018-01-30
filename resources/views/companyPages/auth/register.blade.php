@@ -40,6 +40,15 @@
 			</span>
 			@endif
 		</div>
+		<div class="form-group has-feedback{{ $errors->has('companyname') ? ' has-error' : '' }}">
+			<input type="text" name="companyname" class="form-control" placeholder="Company Name" value="{{ old('companyname') }}" required autofocus>
+			<span class="glyphicon glyphicon-briefcase form-control-feedback"></span>
+			@if ($errors->has('companyname'))
+			<span class="help-block">
+				<strong>{{ $errors->first('companyname') }}</strong>
+			</span>
+			@endif
+		</div>
 		<div class="form-group has-feedback{{ $errors->has('email') ? ' has-error' : '' }}">
 			<input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required autofocus>
 			<span class="glyphicon glyphicon-envelope form-control-feedback"></span>

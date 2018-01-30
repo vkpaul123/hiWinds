@@ -24,6 +24,12 @@ Route::get('/welcome', function() {
 	return view('welcomePage.welcome');
 });
 
+//	USER/COMPANY Routes
+Route::group(['namespace' => 'User'], function() {
+	Route::resource('/address','AddressController');
+});
+
+//	ADMIN Routes
 Route::group(['namespace' => 'Admin'], function() {
 	Route::prefix('admin')->group(function() {
 		Route::get('/', 'HomeController@index')->name('admin.home');

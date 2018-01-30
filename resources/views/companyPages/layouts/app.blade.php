@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	@include('userPages.layouts.headContent')
+	@include('companyPages.layouts.headContent')
 </head>
 <body class="hold-transition skin-green sidebar-mini">
 	<div class="wrapper">
-		@include('userPages.layouts.header')
+		@include('companyPages.layouts.header')
 
-		@include('userPages.layouts.sidebar')
+		@include('companyPages.layouts.sidebar')
 
 		<div class="content-wrapper">
 			@section('body')
 				@show
 		</div>
 
-		@include('userPages.layouts.footer')
+		@include('companyPages.layouts.footer')
 	</div>
 
-	@include('userPages.layouts.loadScripts')
+	@include('companyPages.layouts.loadScripts')
 </body>
 </html>

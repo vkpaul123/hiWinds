@@ -27,6 +27,9 @@ Route::get('/welcome', function() {
 //	USER/COMPANY Routes
 Route::group(['namespace' => 'User'], function() {
 	Route::resource('/address','AddressController');
+
+	Route::resource('/windmill','WindmillController');
+	Route::resource('/windmillAddress', 'WindmillAddressController');
 });
 
 //	ADMIN Routes

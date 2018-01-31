@@ -24,7 +24,7 @@ class CreateAddressesTable extends Migration
             $table->string('district');
             $table->string('state');
             $table->string('pincode');
-            $table->string('phone1');
+            $table->string('phone1')->nullable();
             $table->string('phone2')->nullable();
             $table->string('website')->nullable();
 

@@ -30,4 +30,8 @@ class User extends Authenticatable
     public function address() {
         return $this->belongsTo(Address::class);
     }
+
+    public function windmill() {
+        return $this->hasMany(Windmill::class);
+    }
 }

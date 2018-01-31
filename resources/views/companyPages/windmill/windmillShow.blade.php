@@ -267,10 +267,10 @@
 			<h4 class="text-muted">Options</h4><br>
 			<div class="row">
 				<div class="col-md-4">
-					<a href="{{ route('windmill.edit', $windmill->id) }}" class="btn btn-block btn-success"><strong>Edit Windmill</strong></a>
+					<a href="{{ route('windmill.edit', $windmill->id) }}" class="btn btn-block btn-success"><strong>Edit Wind-Turbine</strong></a>
 				</div>
 				<div class="col-md-4">
-					<a href="{{ route('windmillAddress.edit', $address->id) }}" class="btn btn-block btn-success"><strong>Edit Windmill Address</strong></a>
+					<a href="{{ route('windmillAddress.edit', $address->id) }}" class="btn btn-block btn-success"><strong>Edit Wind-Turbine Address</strong></a>
 				</div>
 				<div class="col-md-4">
 					<a href="" class="btn btn-block btn-danger" onclick="
@@ -281,7 +281,7 @@
           				else {
             				event.preventDefault();
           				}
-          			"><strong>Delete Windmill</strong></a>
+          			"><strong>Delete Wind-Turbine</strong></a>
           			<form method="post" id="delete-windmill" action="{{ route('windmill.destroy', $windmill->id) }}" style="display: none;">
           			  {{ csrf_field() }}
           			  {{ method_field('DELETE') }}

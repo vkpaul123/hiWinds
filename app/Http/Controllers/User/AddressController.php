@@ -97,10 +97,14 @@ class AddressController extends Controller
      */
     public function edit($id)
     {
-        $address = Address::find($id);
+        $user = User::find(Auth::user()->id);
+        if($id == $user->address_id) {
+            $address = Address::find($id);
 
-        return view('companyPages.addressUpdate')
-        ->with(compact('address'));
+            return view('companyPages.addressUpdate')
+            ->with(compact('address'));
+        } else
+            return redirect()->back();
     }
 
     /**
@@ -112,38 +116,42 @@ class AddressController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'street' => 'required',
-            'locality' => 'required',
-            'region' => 'required',
-            'city' => 'required',
-            'district' => 'required',
-            'state' => 'required',
-            'pincode' => 'required|numeric',
-            'phone1' => 'required|numeric',
-        ]);
-
-        $address = Address::find($id);
-        $address->street = $request->street;
-        $address->locality = $request->locality;
-        $address->region = $request->region;
-        $address->landmark = $request->landmark;
-        $address->city = $request->city;
-        $address->district = $request->district;
-        $address->state = $request->state;
-        $address->pincode = $request->pincode;
-        $address->phone1 = $request->phone1;
-        $address->phone2 = $request->phone2;
-        $address->website = $request->website;
-        $address->save();
-
         $user = User::find(Auth::user()->id);
-        $user->address()->associate($address);
+        if($id == $user->address_id) {
+            $this->validate($request, [
+                'street' => 'required',
+                'locality' => 'required',
+                'region' => 'required',
+                'city' => 'required',
+                'district' => 'required',
+                'state' => 'required',
+                'pincode' => 'required|numeric',
+                'phone1' => 'required|numeric',
+            ]);
 
-        $user->save();
+            $address = Address::find($id);
+            $address->street = $request->street;
+            $address->locality = $request->locality;
+            $address->region = $request->region;
+            $address->landmark = $request->landmark;
+            $address->city = $request->city;
+            $address->district = $request->district;
+            $address->state = $request->state;
+            $address->pincode = $request->pincode;
+            $address->phone1 = $request->phone1;
+            $address->phone2 = $request->phone2;
+            $address->website = $request->website;
+            $address->save();
 
-        Session::flash('messageSuccess', 'Address Added Successfully.');
-        return redirect(route('home'));
+            $user = User::find(Auth::user()->id);
+            $user->address()->associate($address);
+
+            $user->save();
+
+            Session::flash('messageSuccess', 'Address Added Successfully.');
+            return redirect(route('home'));
+        } else
+            return redirect()->back();
     }
 
     /**

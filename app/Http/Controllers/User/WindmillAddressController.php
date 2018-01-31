@@ -125,7 +125,7 @@ class WindmillAddressController extends Controller
         $address->save();
 
         Session::flash('messageSuccess', 'Address Updated Successfully.');
-        return redirect(route('windmill.show', $id));
+        return redirect(route('windmill.show', $address->windmill->first()->id));
     }
 
     /**

@@ -218,7 +218,7 @@
 	<div class="box">
 		<div class="box-header with-border">
 			<h3><strong class="text-success">Map Location</strong></h3>
-			<button onclick="initialize()" class="btn btn-warning"><strong>Load Map</strong> <small>Remove this when the map is fixed</small></button>
+			<button onclick="initialize()" class="btn btn-warning pull-right"><strong>Load Map</strong> <small>Remove this when the map is fixed</small></button>
 		</div>
 
 		<div class="box-body">
@@ -264,7 +264,30 @@
 		</div>
 
 		<div class="box-footer">
-			dfdfd
+			<h4 class="text-muted">Options</h4><br>
+			<div class="row">
+				<div class="col-md-4">
+					<a href="{{ route('windmill.edit', $windmill->id) }}" class="btn btn-block btn-success"><strong>Edit Windmill</strong></a>
+				</div>
+				<div class="col-md-4">
+					<a href="{{ route('windmillAddress.edit', $address->id) }}" class="btn btn-block btn-success"><strong>Edit Windmill Address</strong></a>
+				</div>
+				<div class="col-md-4">
+					<a href="" class="btn btn-block btn-danger" onclick="
+           				if(confirm('Are You Sure, you want to delete this record?')) {
+            				event.preventDefault();
+            				document.getElementById('delete-windmill').submit();
+          				}
+          				else {
+            				event.preventDefault();
+          				}
+          			"><strong>Delete Windmill</strong></a>
+          			<form method="post" id="delete-windmill" action="{{ route('windmill.destroy', $windmill->id) }}" style="display: none;">
+          			  {{ csrf_field() }}
+          			  {{ method_field('DELETE') }}
+          			</form>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>

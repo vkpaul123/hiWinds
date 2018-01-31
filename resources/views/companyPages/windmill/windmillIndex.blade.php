@@ -40,9 +40,9 @@
 				<tbody>
 					@foreach($windmills as $windmill)
 						<tr>
-							<td>{{ $windmill->id }}</td>
-							<td><a href="{{ route('windmill.show', $windmill->id) }}" class="text-info"><strong>{{ $windmill->manufacturer }}</strong></a></td>
-							<td>{{ $windmill->modelno }}</td>
+							<td >{{ $windmill->id }}</td>
+							<td ><a href="{{ route('windmill.show', $windmill->id) }}" class="text-info"><strong>{{ $windmill->manufacturer }}</strong></a></td>
+							<td >{{ $windmill->modelno }}</td>
 						</tr>
 					@endforeach
 				</tbody>

@@ -53,7 +53,7 @@
 			</center>
 			@endif
 
-			<form action="{{ route('address.update', $address->id) }}" method="post" class="form-horizontal">
+			<form action="{{ route('windmillAddress.update', $address->id) }}" method="post" class="form-horizontal">
 				{{ csrf_field() }}
 				{{ method_field('PUT') }}
 

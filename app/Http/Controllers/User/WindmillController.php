@@ -103,7 +103,23 @@ class WindmillController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'manufacturer' => 'required',
+            'modelno' => 'required',
+        ]);
+
+        $windmill = Windmill::find($id);
+
+        $windmill->manufacturer = $request->manufacturer;
+        $windmill->modelno = $request->modelno;
+        $windmill->ratedpower = $request->ratedpower;
+        $windmill->ratedwindspeed = $request->ratedwindspeed;
+        $windmill->ratedrpm = $request->ratedrpm;
+        $windmill->rotordiameter = $request->rotordiameter;
+
+        $windmill->save();
+
+        return redirect(route('windmill.show', $windmill->id));
     }
 
     /**
@@ -114,6 +130,10 @@ class WindmillController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $windmill = Windmill::find($id);
+        Address::find($windmill->address_id)->delete();
+        $windmill->delete();
+
+        return redirect(route('windmill.index'));
     }
 }

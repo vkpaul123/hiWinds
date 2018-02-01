@@ -143,13 +143,7 @@ class AddressController extends Controller
             $address->website = $request->website;
             $address->save();
 
-            $user = User::find(Auth::user()->id);
-            $user->address()->associate($address);
-
-            $user->save();
-
-            Session::flash('messageSuccess', 'Address Added Successfully.');
-            return redirect(route('home'));
+            return redirect(route('user.viewProfile'));
         } else
             return redirect()->back();
     }

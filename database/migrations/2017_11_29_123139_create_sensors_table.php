@@ -15,8 +15,14 @@ class CreateSensorsTable extends Migration
     {
         Schema::create('sensors', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('data1');
-            $table->string('data2');
+
+            $table->integer('windmill_id');
+
+            $table->double('current', 8, 4);
+            $table->double('voltage', 8, 4);
+            $table->double('humidity', 8, 4);
+            $table->double('temperature', 8, 4);
+            
             $table->timestamps();
         });
     }

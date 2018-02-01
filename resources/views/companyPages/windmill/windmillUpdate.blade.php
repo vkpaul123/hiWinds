@@ -80,21 +80,21 @@
 				</div>
 
 				<div class="form-group{{ $errors->has('ratedwindspeed') ? ' has-error' : '' }}">
-					<label for="ratedwindspeed" class="col-md-3 control-label">Rated Wind Speed<span class="text-red">*</span></label>
+					<label for="ratedwindspeed" class="col-md-3 control-label">Rated Wind Speed</label>
 					<div class="col-md-6">
 						<input type="text" class="form-control pull-right" id="ratedwindspeed" name="ratedwindspeed" placeholder="Rated Wind Speed (m/s)" value="{{ $windmill->ratedwindspeed }}">
 					</div>
 				</div>
 
 				<div class="form-group{{ $errors->has('ratedrpm') ? ' has-error' : '' }}">
-					<label for="ratedrpm" class="col-md-3 control-label">Rated Speed<span class="text-red">*</span></label>
+					<label for="ratedrpm" class="col-md-3 control-label">Rated Speed</label>
 					<div class="col-md-6">
 						<input type="text" class="form-control pull-right" id="ratedrpm" name="ratedrpm" placeholder="Rated Speed (RPM)" value="{{ $windmill->ratedrpm }}">
 					</div>
 				</div>
 
 				<div class="form-group{{ $errors->has('rotordiameter') ? ' has-error' : '' }}">
-					<label for="rotordiameter" class="col-md-3 control-label">Rotor Diameter<span class="text-red">*</span></label>
+					<label for="rotordiameter" class="col-md-3 control-label">Rotor Diameter</label>
 					<div class="col-md-6">
 						<input type="text" class="form-control pull-right" id="rotordiameter" name="rotordiameter" placeholder="Rotor Diameter (m)" value="{{ $windmill->rotordiameter }}">
 					</div>

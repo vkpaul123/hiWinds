@@ -30,6 +30,8 @@ Route::group(['namespace' => 'User'], function() {
 
 	Route::resource('/windmill','WindmillController');
 	Route::resource('/windmillAddress', 'WindmillAddressController');
+
+	Route::get('/user/profileView','ShowUserProfileController@showProfile')->name('user.viewProfile');
 });
 
 //	ADMIN Routes

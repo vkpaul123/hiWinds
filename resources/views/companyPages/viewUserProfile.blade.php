@@ -1,5 +1,6 @@
 @extends('companyPages.layouts.app')
 @section('title', 'Profile Page')
+@section('sideBarActivator_Home', 'class=active')
 
 @section('body')
 
@@ -30,7 +31,7 @@
 				</div>
 				<div class="pull-right col-md-2 col-md-offset-2 col-xs-12">
 					<br>
-					<a href="" class="btn btn-block btn-primary">Edit Profile</a>
+					<a href="{{ route('user.profileEdit') }}" class="btn btn-block btn-primary">Edit Profile</a>
 					<a href="{{ route('address.edit', Auth::user()->address_id) }}" class="btn btn-block btn-primary">Edit Address</a>
 				</div>
 			</div>

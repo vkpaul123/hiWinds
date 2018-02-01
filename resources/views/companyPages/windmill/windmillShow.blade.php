@@ -1,5 +1,6 @@
 @extends('companyPages.layouts.app')
 @section('title', 'View Wind-Turbine')
+@section('sideBarActivator_WindTurbines', 'class=active')
 
 @section('body')
 
@@ -31,7 +32,7 @@
 			@endif
 			
 			<div class="row">
-				<div class="col-lg-3 col-xs-6">
+				<div class="col-lg-3 col-xs-5">
 		          <!-- small box -->
 		          <div class="small-box bg-green">
 		            <div class="inner">
@@ -42,6 +43,10 @@
 		            </div>
 		            <span class="small-box-footer">Wind-Turbine ID</span>
 		          </div>
+		        </div>
+		        <div class="col-md-3 pull-right">
+		        	<a href="{{ route('windmill.index') }}" class="btn btn-block btn-info">Back</a>
+		        	<a href="{{ route('windmill.log', $windmill->id) }}" class="btn btn-block btn-lg btn-primary"><strong>View Log</strong></a>
 		        </div>
 			</div>
 			
@@ -56,18 +61,18 @@
 						<br>
 						<div class="container">
 							<div class="row">
-								<div class="col-md-3">
+								<div class="col-md-3 col-xs-7">
 									<strong class="text-success">Manufacturer</strong>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-6 col-xs-5">
 									{{ $windmill->manufacturer }}
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-3">
+								<div class="col-md-3 col-xs-7">
 									<strong class="text-success">Model</strong>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-6 col-xs-5">
 									{{ $windmill->modelno }}
 								</div>
 							</div>
@@ -77,10 +82,10 @@
 						<br>
 						<div class="container">
 							<div class="row">
-								<div class="col-md-3">
+								<div class="col-md-3 col-xs-7">
 									<strong class="text-success">Rated Power</strong>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-6 col-xs-5">
 									@isset($windmill->ratedpower)
 										{{ $windmill->ratedpower }} &nbsp kW
 									@else
@@ -89,10 +94,10 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-3">
+								<div class="col-md-3 col-xs-7">
 									<strong class="text-success">Rated Wind Speed</strong>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-6 col-xs-5">
 									@isset($windmill->ratedwindspeed)
 										{{ $windmill->ratedwindspeed }} &nbsp m/s
 									@else
@@ -101,10 +106,10 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-3">
+								<div class="col-md-3 col-xs-7">
 									<strong class="text-success">Rated Speed</strong>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-6 col-xs-5">
 									@isset($windmill->ratedrpm)
 										{{ $windmill->ratedrpm }} &nbsp RPM
 									@else
@@ -113,10 +118,10 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-3">
+								<div class="col-md-3 col-xs-7">
 									<strong class="text-success">Rotor Diameter</strong>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-6 col-xs-5">
 									@isset($windmill->rotordiameter)
 										{{ $windmill->rotordiameter }} &nbsp m
 									@else
@@ -127,9 +132,10 @@
 						</div>
 						<br>
 					</div>
-
+					<div class="box-footer">
+						<a href="{{ route('windmill.edit', $windmill->id) }}" class="btn btn-success pull-right"><strong>Edit Wind-Turbine Details</strong></a>
+					</div>
 				</div>
-				
 			</div>
 			
 			<div class="col-md-6">
@@ -141,76 +147,76 @@
 					<div class="box-body">
 						<div class="container">
 							<div class="row">
-								<div class="col-md-2">
+								<div class="col-md-2 col-xs-4">
 									<strong class="text-success">Street</strong>
 								</div>
-								<div class="col-md-8">
+								<div class="col-md-8 col-xs-8">
 									{{ $address->street }}
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-2">
+								<div class="col-md-2 col-xs-4">
 									<strong class="text-success">Locality</strong>
 								</div>
-								<div class="col-md-8">
+								<div class="col-md-8 col-xs-8">
 									{{ $address->locality }}
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-2">
+								<div class="col-md-2 col-xs-4">
 									<strong class="text-success">Region</strong>
 								</div>
-								<div class="col-md-8">
+								<div class="col-md-8 col-xs-8">
 									{{ $address->region }}
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-2">
+								<div class="col-md-2 col-xs-4">
 									<strong class="text-success">Landmark</strong>
 								</div>
-								<div class="col-md-8">
+								<div class="col-md-8 col-xs-8">
 									{{ $address->landmark }}
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-2">
+								<div class="col-md-2 col-xs-4">
 									<strong class="text-success">City</strong>
 								</div>
-								<div class="col-md-8">
+								<div class="col-md-8 col-xs-8">
 									{{ $address->city }}
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-2">
+								<div class="col-md-2 col-xs-4">
 									<strong class="text-success">District</strong>
 								</div>
-								<div class="col-md-8">
+								<div class="col-md-8 col-xs-8">
 									{{ $address->district }}
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-2">
+								<div class="col-md-2 col-xs-4">
 									<strong class="text-success">State</strong>
 								</div>
-								<div class="col-md-8">
+								<div class="col-md-8 col-xs-8">
 									{{ $address->state }}
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-2">
+								<div class="col-md-2 col-xs-4">
 									<strong class="text-success">Pincode</strong>
 								</div>
-								<div class="col-md-8">
+								<div class="col-md-8 col-xs-8">
 									{{ $address->pincode }}
 								</div>
 							</div>
 						</div>
-						
 					</div>
-
+					<div class="box-footer">
+						<a href="{{ route('windmillAddress.edit', $address->id) }}" class="btn pull-right btn-success"><strong>Edit Wind-Turbine Address</strong></a>
+					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 
@@ -264,30 +270,19 @@
 		</div>
 
 		<div class="box-footer">
-			<h4 class="text-muted">Options</h4><br>
-			<div class="row">
-				<div class="col-md-4">
-					<a href="{{ route('windmill.edit', $windmill->id) }}" class="btn btn-block btn-success"><strong>Edit Wind-Turbine</strong></a>
-				</div>
-				<div class="col-md-4">
-					<a href="{{ route('windmillAddress.edit', $address->id) }}" class="btn btn-block btn-success"><strong>Edit Wind-Turbine Address</strong></a>
-				</div>
-				<div class="col-md-4">
-					<a href="" class="btn btn-block btn-danger" onclick="
-           				if(confirm('Are You Sure, you want to delete this record?')) {
-            				event.preventDefault();
-            				document.getElementById('delete-windmill').submit();
-          				}
-          				else {
-            				event.preventDefault();
-          				}
-          			"><strong>Delete Wind-Turbine</strong></a>
-          			<form method="post" id="delete-windmill" action="{{ route('windmill.destroy', $windmill->id) }}" style="display: none;">
-          			  {{ csrf_field() }}
-          			  {{ method_field('DELETE') }}
-          			</form>
-				</div>
-			</div>
+			<a href="" class="btn pull-right btn-danger" onclick="
+   				if(confirm('Are You Sure, you want to delete this record?')) {
+    				event.preventDefault();
+    				document.getElementById('delete-windmill').submit();
+  				}
+  				else {
+    				event.preventDefault();
+  				}
+  			"><strong>Delete Wind-Turbine</strong></a>
+  			<form method="post" id="delete-windmill" action="{{ route('windmill.destroy', $windmill->id) }}" style="display: none;">
+  			  {{ csrf_field() }}
+  			  {{ method_field('DELETE') }}
+  			</form>
 		</div>
 	</div>
 </section>

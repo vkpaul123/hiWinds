@@ -1,5 +1,6 @@
 @extends('companyPages.layouts.app')
 @section('title', 'All Wind-Turbines')
+@section('sideBarActivator_WindTurbines', 'class=active')
 
 @section('pageSpecificHeadContent')
 	<link rel="stylesheet" href="{{ asset('rawThemes/adminLTE/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
@@ -29,31 +30,62 @@
 		</div>
 		
 		<div class="box-body">
-			<table id="windmillstable" class="table table-bordered table-hover">
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>Manufacturer</th>
-						<th>Model</th>
-					</tr>
-				</thead>
-				<tbody>
-					@foreach($windmills as $windmill)
+			<div class="container-fluid">
+				<div class="row">
+					<div class="box">
+						<div class="box-header with-border">
+							<h4 class="text-success"><strong>Upload File</strong> &nbsp <small class="pull-right">Please Upload the <b>XLS/Excel</b> File with Wind-Turbine data.</small></h4>
+						</div>
+						<div class="box-body">
+							<form action="" class="form-horizontal" action="post" enctype="multipart/form-data">
+								{{ csrf_field() }}
+
+								<div class="form-group{{ $errors->has('excelFile') ? ' has-error' : '' }}">
+									<label for="excelFile" class="col-md-3 control-label">Excel File (XLS)<span class="text-red">*</span></label>
+									<div class="col-md-6">
+										<input type="file" class="form-control pull-right" id="excelFile" name="excelFile"  value="{{old('excelFile')}}">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-offset-5 col-md-2">
+										<button type="submit" class="btn btn-success btn-block pull-right"><strong>Submit</strong></button>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="box-footer">
+							<span class="text-red"><strong>*</strong></span>Required Fields
+						</div>
+					</div>
+				</div>
+			</div><br>
+			<div class="table-responsive no-padding">
+				<table id="windmillstable" class="table table-bordered table-hover">
+					<thead>
 						<tr>
-							<td >{{ $windmill->id }}</td>
-							<td ><a href="{{ route('windmill.show', $windmill->id) }}" class="text-info"><strong>{{ $windmill->manufacturer }}</strong></a></td>
-							<td >{{ $windmill->modelno }}</td>
+							<th>ID</th>
+							<th>Manufacturer</th>
+							<th>Model</th>
 						</tr>
-					@endforeach
-				</tbody>
-				<tfoot>
-					<tr>
-						<th>ID</th>
-						<th>Manufacturer</th>
-						<th>Model</th>
-					</tr>
-				</tfoot>
-			</table>
+					</thead>
+					<tbody>
+						@foreach($windmills as $windmill)
+							<tr>
+								<td ><a href="{{ route('windmill.show', $windmill->id) }}" class="text-muted"><strong>{{ $windmill->id }}</strong></a></td>
+								<td ><a href="{{ route('windmill.show', $windmill->id) }}" class="text-info"><strong>{{ $windmill->manufacturer }}</strong></a></td>
+								<td ><a href="{{ route('windmill.show', $windmill->id) }}" class="text-muted"><strong>{{ $windmill->modelno }}</strong></a></td>
+							</tr>
+						@endforeach
+					</tbody>
+					<tfoot>
+						<tr>
+							<th>ID</th>
+							<th>Manufacturer</th>
+							<th>Model</th>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
 		</div>
 	</div>
 </section>

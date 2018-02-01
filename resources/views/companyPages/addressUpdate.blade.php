@@ -1,5 +1,6 @@
 @extends('companyPages.layouts.app')
 @section('title', 'Address')
+@section('sideBarActivator_Home', 'class=active')
 
 @section('body')
 

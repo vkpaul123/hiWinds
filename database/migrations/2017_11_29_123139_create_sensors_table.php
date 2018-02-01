@@ -20,6 +20,7 @@ class CreateSensorsTable extends Migration
 
             $table->double('current', 8, 4);
             $table->double('voltage', 8, 4);
+            $table->double('power', 8,4);
             $table->double('humidity', 8, 4);
             $table->double('temperature', 8, 4);
             

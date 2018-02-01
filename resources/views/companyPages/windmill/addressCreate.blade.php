@@ -1,5 +1,6 @@
 @extends('companyPages.layouts.app')
-@section('title', 'Address')
+@section('title', 'Wind-Turbine Address')
+@section('sideBarActivator_WindTurbines', 'class=active')
 
 @section('body')
 

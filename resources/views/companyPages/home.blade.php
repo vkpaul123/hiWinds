@@ -1,5 +1,6 @@
 @extends('companyPages.layouts.app')
 @section('title', 'Home')
+@section('sideBarActivator_Home', 'class=active')
 
 @section('pageSpecificHeadContent')
   {{-- EXTRA HEAD CONTENT --}}

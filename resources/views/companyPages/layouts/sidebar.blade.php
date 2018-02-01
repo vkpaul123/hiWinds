@@ -15,7 +15,9 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">MAIN NAVIGATION</li>
-      <li class="active treeview">
+      <li @yield('sideBarActivator_Home')><a href="{{ route('home') }}"><i class="fa fa-home text-success"></i> <span>Home</span></a></li>
+      <li @yield('sideBarActivator_WindTurbines')><a href="{{ route('windmill.index') }}"><i class="fa fa-industry"></i> <span>Wind-Turbines</span></a></li>
+      <li>
         <a href="#">
           <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           <span class="pull-right-container">

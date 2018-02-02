@@ -60,9 +60,7 @@
 									<h4 class="text-success">Power</h4>
 								</div>
 								<div class="panel-body">
-									<div class="jumbotron">
-										<div class="h2">Add Graph</div>
-									</div>
+									<div id="interactive-power" style="height: 300px;"></div>
 								</div>
 							</div>
 						</div>
@@ -73,9 +71,7 @@
 										<h4 class="text-success">Current</h4>
 									</div>
 									<div class="panel-body">
-										<div class="jumbotron">
-											<div class="h2">Add Graph</div>
-										</div>
+										<div id="interactive-current" style="height: 300px"></div>
 									</div>
 								</div>
 							</div>
@@ -85,9 +81,7 @@
 										<h4 class="text-success">Voltage</h4>
 									</div>
 									<div class="panel-body">
-										<div class="jumbotron">
-											<div class="h2">Add Graph</div>
-										</div>
+										<div id="interactive-voltage" style="height: 300px"></div>
 									</div>
 								</div>
 							</div>
@@ -99,9 +93,7 @@
 										<h4 class="text-success">Temperature</h4>
 									</div>
 									<div class="panel-body">
-										<div class="jumbotron">
-											<div class="h2">Add Graph</div>
-										</div>
+										<div id="interactive-temperature" style="height: 300px"></div>
 									</div>
 								</div>
 							</div>
@@ -111,9 +103,7 @@
 										<h4 class="text-success">Humity</h4>
 									</div>
 									<div class="panel-body">
-										<div class="jumbotron">
-											<div class="h2">Add Graph</div>
-										</div>
+										<div id="interactive-humidity" style="height: 300px"></div>
 									</div>
 								</div>
 							</div>
@@ -180,6 +170,14 @@
 	<script src="{{ asset('rawThemes/adminLTE/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
 	{{-- FastClick --}}
 	<script src="{{ asset('rawThemes/adminLTE/bower_components/fastclick/lib/fastclick.js') }}"></script>
+	
+	<!-- FLOT CHARTS -->
+	<script src="{{ asset('rawThemes/adminLTE/bower_components/Flot/jquery.flot.js') }}"></script>
+	<!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
+	<script src="{{ asset('rawThemes/adminLTE/bower_components/Flot/jquery.flot.resize.js') }}"></script>
+	<!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
+	<script src="{{ asset('rawThemes/adminLTE/bower_components/Flot/jquery.flot.categories.js') }}"></script>
+	{{-- EXTRA SCRIPTS --}}
 
 	<script>
 	  $(function () {
@@ -191,6 +189,202 @@
 	      'info'        : true,
 	      'autoWidth'   : true
 	    })
+	  
+	    /*
+         * Flot Interactive Chart
+         * -----------------------
+         */
+        // We use an inline data source in the example, usually data would
+        // be fetched from a server
+        var data = [], totalPoints = 100
+
+        function getRandomData() {
+
+          if (data.length > 0)
+            data = data.slice(1)
+
+          // Do a random walk
+          while (data.length < totalPoints) {
+
+            var prev = data.length > 0 ? data[data.length - 1] : 50,
+                y    = prev + Math.random() * 10 - 5
+
+            if (y < 0) {
+              y = 0
+            } else if (y > 100) {
+              y = 100
+            }
+
+            data.push(y)
+          }
+
+          // Zip the generated y values with the x values
+          var res = []
+          for (var i = 0; i < data.length; ++i) {
+            res.push([i, data[i]])
+          }
+
+          return res
+        }
+
+        var interactive_plot_power = $.plot('#interactive-power', [getRandomData()], {
+          grid  : {
+            borderColor: '#f3f3f3',
+            borderWidth: 1,
+            tickColor  : '#f3f3f3'
+          },
+          series: {
+            shadowSize: 0, // Drawing is faster without shadows
+            color     : '#3c8dbc'
+          },
+          lines : {
+            fill : true, //Converts the line chart to area chart
+            color: '#3c8dbc'
+          },
+          yaxis : {
+            min : 0,
+            max : 100,
+            show: true
+          },
+          xaxis : {
+            show: true
+          }
+        })
+
+        var interactive_plot_current = $.plot('#interactive-current', [getRandomData()], {
+          grid  : {
+            borderColor: '#f3f3f3',
+            borderWidth: 1,
+            tickColor  : '#f3f3f3'
+          },
+          series: {
+            shadowSize: 0, // Drawing is faster without shadows
+            color     : '#3c8dbc'
+          },
+          lines : {
+            fill : true, //Converts the line chart to area chart
+            color: '#3c8dbc'
+          },
+          yaxis : {
+            min : 0,
+            max : 100,
+            show: true
+          },
+          xaxis : {
+            show: true
+          }
+        })
+
+        var interactive_plot_voltage = $.plot('#interactive-voltage', [getRandomData()], {
+          grid  : {
+            borderColor: '#f3f3f3',
+            borderWidth: 1,
+            tickColor  : '#f3f3f3'
+          },
+          series: {
+            shadowSize: 0, // Drawing is faster without shadows
+            color     : '#3c8dbc'
+          },
+          lines : {
+            fill : true, //Converts the line chart to area chart
+            color: '#3c8dbc'
+          },
+          yaxis : {
+            min : 0,
+            max : 100,
+            show: true
+          },
+          xaxis : {
+            show: true
+          }
+        })
+
+        var interactive_plot_temperature = $.plot('#interactive-temperature', [getRandomData()], {
+          grid  : {
+            borderColor: '#f3f3f3',
+            borderWidth: 1,
+            tickColor  : '#f3f3f3'
+          },
+          series: {
+            shadowSize: 0, // Drawing is faster without shadows
+            color     : '#3c8dbc'
+          },
+          lines : {
+            fill : true, //Converts the line chart to area chart
+            color: '#3c8dbc'
+          },
+          yaxis : {
+            min : 0,
+            max : 100,
+            show: true
+          },
+          xaxis : {
+            show: true
+          }
+        })
+
+        var interactive_plot_humidity = $.plot('#interactive-humidity', [getRandomData()], {
+          grid  : {
+            borderColor: '#f3f3f3',
+            borderWidth: 1,
+            tickColor  : '#f3f3f3'
+          },
+          series: {
+            shadowSize: 0, // Drawing is faster without shadows
+            color     : '#3c8dbc'
+          },
+          lines : {
+            fill : true, //Converts the line chart to area chart
+            color: '#3c8dbc'
+          },
+          yaxis : {
+            min : 0,
+            max : 100,
+            show: true
+          },
+          xaxis : {
+            show: true
+          }
+        })
+
+        var updateInterval = 500 //Fetch data ever x milliseconds
+        var realtime       = 'on' //If == to on then fetch data every x seconds. else stop fetching
+        function update() {
+
+          interactive_plot_power.setData([getRandomData()])
+          interactive_plot_current.setData([getRandomData()])
+          interactive_plot_voltage.setData([getRandomData()])
+          interactive_plot_temperature.setData([getRandomData()])
+          interactive_plot_humidity.setData([getRandomData()])
+
+          // Since the axes don't change, we don't need to call plot.setupGrid()
+          interactive_plot_power.draw()
+          interactive_plot_current.draw()
+          interactive_plot_voltage.draw()
+          interactive_plot_temperature.draw()
+          interactive_plot_humidity.draw()
+
+          if (realtime === 'on')
+            setTimeout(update, updateInterval)
+        }
+
+        //INITIALIZE REALTIME DATA FETCHING
+        if (realtime === 'on') {
+          update()
+        }
+        //REALTIME TOGGLE
+        $('#realtime .btn').click(function () {
+          if ($(this).data('toggle') === 'on') {
+            realtime = 'on'
+          }
+          else {
+            realtime = 'off'
+          }
+          update()
+        })
+        /*
+         * END INTERACTIVE CHART
+         */
 	  })
 	</script>
 @endsection

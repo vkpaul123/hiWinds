@@ -122,12 +122,12 @@
 					<table class="table table-bordered table-hover" id="sensorLog">
 						<thead>
 							<tr>
-								<th>Current (A)</th>
-								<th>Voltage (V)</th>
-								<th>Power (W)</th>
-								<th>Temprature (&degC)</th>
-								<th>Humidity (%)</th>
-								<th>Timestamp</th>
+								<th><span class="text-success">Current (A)</span></th>
+								<th><span class="text-success">Voltage (V)</span></th>
+								<th><span class="text-success">Power (W)</span></th>
+								<th><span class="text-success">Temprature (&degC)</span></th>
+								<th><span class="text-success">Humidity (%)</span></th>
+								<th><span class="text-success">Timestamp</span></th>
 							</tr>
 						</thead>
 
@@ -148,12 +148,12 @@
 
 						<tfoot>
 							<tr>
-								<th>Current (A)</th>
-								<th>Voltage (V)</th>
-								<th>Power (W)</th>
-								<th>Temprature (&degC)</th>
-								<th>Humidity (%)</th>
-								<th>Timestamp</th>
+								<th><span class="text-success">Current (A)</span></th>
+								<th><span class="text-success">Voltage (V)</span></th>
+								<th><span class="text-success">Power (W)</span></th>
+								<th><span class="text-success">Temprature (&degC)</span></th>
+								<th><span class="text-success">Humidity (%)</span></th>
+								<th><span class="text-success">Timestamp</span></th>
 							</tr>
 						</tfoot>
 					</table>
@@ -235,11 +235,11 @@
           },
           series: {
             shadowSize: 0, // Drawing is faster without shadows
-            color     : '#3c8dbc'
+            color     : '#00a65a'
           },
           lines : {
             fill : true, //Converts the line chart to area chart
-            color: '#3c8dbc'
+            color: '#00a65a'
           },
           yaxis : {
             min : 0,
@@ -259,11 +259,11 @@
           },
           series: {
             shadowSize: 0, // Drawing is faster without shadows
-            color     : '#3c8dbc'
+            color     : '#00a65a'
           },
           lines : {
             fill : true, //Converts the line chart to area chart
-            color: '#3c8dbc'
+            color: '#00a65a'
           },
           yaxis : {
             min : 0,
@@ -283,11 +283,11 @@
           },
           series: {
             shadowSize: 0, // Drawing is faster without shadows
-            color     : '#3c8dbc'
+            color     : '#00a65a'
           },
           lines : {
             fill : true, //Converts the line chart to area chart
-            color: '#3c8dbc'
+            color: '#00a65a'
           },
           yaxis : {
             min : 0,
@@ -307,11 +307,11 @@
           },
           series: {
             shadowSize: 0, // Drawing is faster without shadows
-            color     : '#3c8dbc'
+            color     : '#00a65a'
           },
           lines : {
             fill : true, //Converts the line chart to area chart
-            color: '#3c8dbc'
+            color: '#00a65a'
           },
           yaxis : {
             min : 0,
@@ -331,11 +331,11 @@
           },
           series: {
             shadowSize: 0, // Drawing is faster without shadows
-            color     : '#3c8dbc'
+            color     : '#00a65a'
           },
           lines : {
             fill : true, //Converts the line chart to area chart
-            color: '#3c8dbc'
+            color: '#00a65a'
           },
           yaxis : {
             min : 0,

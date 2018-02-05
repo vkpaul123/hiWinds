@@ -340,7 +340,7 @@
 
 		    var bar_data = {
 		      data : [['January', 10], ['February', 8], ['March', 4], ['April', 13], ['May', 17], ['June', 9]],
-		      color: '#3c8dbc'
+		      color: '#00a65a'
 		    }
 		    $.plot('#bar-chart', [bar_data], {
 		      grid  : {

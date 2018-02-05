@@ -93,9 +93,9 @@
 				<table id="windmillstable" class="table table-bordered table-hover">
 					<thead>
 						<tr>
-							<th>ID</th>
-							<th>Manufacturer</th>
-							<th>Model</th>
+							<th><span class="text-success">ID</span></th>
+							<th><span class="text-success">Manufacturer</span></th>
+							<th><span class="text-success">Model</span></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -109,9 +109,9 @@
 					</tbody>
 					<tfoot>
 						<tr>
-							<th>ID</th>
-							<th>Manufacturer</th>
-							<th>Model</th>
+							<th><span class="text-success">ID</span></th>
+							<th><span class="text-success">Manufacturer</span></th>
+							<th><span class="text-success">Model</span></th>
 						</tr>
 					</tfoot>
 				</table>

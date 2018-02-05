@@ -34,14 +34,44 @@
 				<div class="row">
 					<div class="box">
 						<div class="box-header with-border">
-							<h4 class="text-success"><strong>Upload File</strong> &nbsp <small class="pull-right">Please Upload the <b>XLS/Excel</b> File with Wind-Turbine data.</small></h4>
+							<h4 class="text-success"><strong>Upload File</strong> &nbsp <small class="pull-right">Please Upload the <b>XLSX/Excel</b> File with Wind-Turbine data.</small></h4>
 						</div>
 						<div class="box-body">
-							<form action="" class="form-horizontal" action="post" enctype="multipart/form-data">
+							@if (Session::has('message'))
+								<div class="alert alert-danger">{!! Session::get('message') !!}
+									<button type="button" class="close" data-dismiss="alert"><i class="fa fa-times"></i></button>
+								</div>
+							@endif
+							@if (Session::has('messageFail'))
+							  <div class="alert alert-danger">{!! Session::get('messageFail') !!}
+							    <button type="button" class="close" data-dismiss="alert"><i class="fa fa-times"></i></button>
+							  </div>
+							@endif
+							@if (Session::has('messageSuccess'))
+							  <div class="alert alert-success">{!! Session::get('messageSuccess') !!}
+							    <button type="button" class="close" data-dismiss="alert"><i class="fa fa-times"></i></button>
+							  </div>
+							@endif
+							@if(count($errors) > 0)
+								<center>
+									<div class="alert alert-danger">
+										<button type="button" class="close" data-dismiss="alert"><i class="fa fa-times"></i></button>
+										<strong>
+											You Have Errors while submitting. Please Fill up the information in the Fields that are Highlighted in Red.
+										</strong>
+										<hr>
+										@foreach ($errors->all() as $error)
+											{{ $error }} <br>
+										@endforeach
+									</div>
+								</center>
+							@endif
+							
+							<form action="{{ route('windmill.excel.upload') }}" method="post" class="form-horizontal" enctype="multipart/form-data">
 								{{ csrf_field() }}
 
 								<div class="form-group{{ $errors->has('excelFile') ? ' has-error' : '' }}">
-									<label for="excelFile" class="col-md-3 control-label">Excel File (XLS)<span class="text-red">*</span></label>
+									<label for="excelFile" class="col-md-3 control-label">Excel File (.XLSX)<span class="text-red">*</span></label>
 									<div class="col-md-6">
 										<input type="file" class="form-control pull-right" id="excelFile" name="excelFile"  value="{{old('excelFile')}}">
 									</div>

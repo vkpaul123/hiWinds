@@ -24,8 +24,15 @@ Route::get('/welcome', function() {
 	return view('welcomePage.welcome');
 });
 
+Auth::routes();
+
+//	Store sensor data into database 
+Route::get('/store/{windmill_id}/{current}/{voltage}/{humidity}/{temperature}', 'SensorController@store');
+
 //	USER/COMPANY Routes
 Route::group(['namespace' => 'User'], function() {
+	Route::get('/home', 'HomeController@index')->name('home');
+	
 	Route::resource('/address','AddressController');
 
 	Route::resource('/windmill','WindmillController');
@@ -55,8 +62,5 @@ Route::group(['namespace' => 'Admin'], function() {
 	});
 });
 
-Auth::routes();
 
-Route::get('/home', 'User\HomeController@index')->name('home');
 
-Route::get('/store/{data1}/{data2}', 'SensorDataController@store');

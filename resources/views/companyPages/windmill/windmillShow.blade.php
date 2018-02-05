@@ -132,9 +132,6 @@
 						</div>
 						<br>
 					</div>
-					<div class="box-footer">
-						<a href="{{ route('windmill.edit', $windmill->id) }}" class="btn btn-success pull-right"><strong>Edit Wind-Turbine Details</strong></a>
-					</div>
 				</div>
 			</div>
 			
@@ -145,7 +142,8 @@
 					</div>
 					
 					<div class="box-body">
-						<div class="container">
+						<div class="container-fluid">
+						@if(count($address) != 0)
 							<div class="row">
 								<div class="col-md-2 col-xs-4">
 									<strong class="text-success">Street</strong>
@@ -210,13 +208,35 @@
 									{{ $address->pincode }}
 								</div>
 							</div>
+
+						@else
+
+						<center>
+							<div class="jumbotron">
+								<h4 class="text-danger"><i class="fa fa-exclamation-triangle" style="font-size: 2em;"></i><br>Address Not Found!<br><small>Address not added for this Wind-Turbine. Please add an address.</small></h4><hr>
+								<a href="{{ route('windmillAddress.show', $windmill->id) }}" class="btn btn-primary pull-right"><strong>Add Address</strong></a>
+							</div>
+						</center>
+
+						@endif
+
 						</div>
-					</div>
-					<div class="box-footer">
-						<a href="{{ route('windmillAddress.edit', $address->id) }}" class="btn pull-right btn-success"><strong>Edit Wind-Turbine Address</strong></a>
 					</div>
 				</div>
 			</div>
+		</div>
+		<div class="box-footer">
+			<div class="col-md-6 col-xs-6">
+				<a href="{{ route('windmill.edit', $windmill->id) }}" class="btn btn-success pull-right"><strong>Edit Details</strong></a>
+			</div>
+
+			@isset($address->id)
+			
+			<div class="col-md-6 col-xs-6">
+				<a href="{{ route('windmillAddress.edit', $address->id) }}" class="btn pull-right btn-success"><strong>Edit Address</strong></a>
+			</div>
+
+			@endisset
 		</div>
 	</div>
 

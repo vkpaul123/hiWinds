@@ -26,7 +26,7 @@
 		<div class="box-header with-border">
 			<h3 class="box-title">All Wind-Turbines</h3>
 
-			<a href="{{ route('windmill.create') }}" class="btn btn-success pull-right"><strong>Add New</strong> Wind-Turbine</a>
+			<a href="{{ route('windmill.create') }}" class="btn btn-primary pull-right"><strong>Add New</strong> Wind-Turbine</a>
 		</div>
 		
 		<div class="box-body">

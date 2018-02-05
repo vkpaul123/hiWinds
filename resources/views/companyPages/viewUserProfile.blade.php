@@ -124,7 +124,7 @@
 									<h4 class="text-success">Monthly Power Generation</h4>
 								</div>
 								<div class="box-body">
-									<div id="bar-chart" style="height: 300px;"></div>
+									<div id="bar-chart" style="height: 335px;"></div>
 								</div>
 								<div class="box-footer">
 									<center><small><i class="text-muted">Last 6 months</i></small></center>

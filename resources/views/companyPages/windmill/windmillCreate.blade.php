@@ -26,7 +26,7 @@
 		<div class="box-header with-border">
 			<h3 class="box-title">Add Wind-Turbine Details</h3>
 
-			<a href="{{ route('windmill.index') }}" class="btn btn-success pull-right">Back to <strong>All Wind-Turbines</strong></a>
+			<a href="{{ route('windmill.index') }}" class="btn btn-info pull-right">Back to <strong>All Wind-Turbines</strong></a>
 		</div>
 		<div class="box-body">
 			

@@ -136,9 +136,9 @@
 							
 							<tr>
 								<td>{{ $sensor->current }}</td>
-								<td>{{ $sensor->oltage }}</td>
+								<td>{{ $sensor->voltage }}</td>
 								<td>{{ $sensor->power }}</td>
-								<td>{{ $sensor->temprature }}</td>
+								<td>{{ $sensor->temperature }}</td>
 								<td>{{ $sensor->humidity }}</td>
 								<td>{{ $sensor->created_at }}</td>
 							</tr>

@@ -18,13 +18,22 @@
         <!-- User Account: style can be found in dropdown.less -->
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <img src="{{ @asset('rawThemes/adminLTE/dist/img/user2-160x160.jpg') }}" class="user-image" alt="User Image">
+            @isset(Auth::user()->photo)
+              <img src="{{ Auth::user()->photo }}" class="user-image" alt="User Image">
+            @else
+              <img src="{{ asset('rawThemes/staticImages/user.png') }}" class="user-image" alt="User Image">
+            @endisset
+
             <span class="hidden-xs">{{ @Auth::user()->firstname." ".@Auth::user()->middlename." ".@Auth::user()->lastname }}</span>
           </a>
           <ul class="dropdown-menu">
             <!-- User image -->
             <li class="user-header">
-              <img src="{{ @asset('rawThemes/adminLTE/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+              @isset(Auth::user()->photo)
+                <img src="{{ Auth::user()->photo }}" class="img-circle" alt="User Image">
+              @else
+                <img src="{{ asset('rawThemes/staticImages/user.png') }}" class="img-circle" alt="User Image">
+              @endisset
 
               <p>
                 {{ @Auth::user()->firstname." ".@Auth::user()->middlename." ".@Auth::user()->lastname }} - <strong>{{ @Auth::user()->companyname }}</strong>

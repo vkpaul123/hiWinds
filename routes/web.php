@@ -42,6 +42,7 @@ Route::group(['namespace' => 'User'], function() {
 	Route::get('/user/profileView','ShowUserProfileController@showProfile')->name('user.viewProfile');
 	Route::get('/user/profileEdit','ShowUserProfileController@editProfile')->name('user.profileEdit');
 	Route::put('/user/profileEdit','ShowUserProfileController@updateProfile')->name('user.profileUpdate');
+	Route::put('/user/profilePhotoEdit', 'ProfilePhotoController@photoUpload')->name('user.profilePhotoUpload');
 
 	Route::post('/windmill/excel/upload', 'WindmillExcelUploadController@uploadWindmills')->name('windmill.excel.upload');
 });

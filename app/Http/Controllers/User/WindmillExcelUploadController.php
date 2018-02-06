@@ -11,7 +11,12 @@ use Illuminate\Support\Facades\Session;
 use Maatwebsite\Excel\Facades\Excel;
 
 class WindmillExcelUploadController extends Controller
-{
+{   
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function uploadWindmills(Request $request) {
     	$this->validate($request, [
     		'excelFile' => 'required',

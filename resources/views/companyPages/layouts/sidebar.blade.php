@@ -5,7 +5,12 @@
     <!-- Sidebar user panel -->
     <div class="user-panel">
       <div class="pull-left image">
-        <img src="{{ @asset('rawThemes/adminLTE/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+        @isset(Auth::user()->photo)
+          <img src="{{ Auth::user()->photo }}" class="img-circle" alt="User Image">
+        @else
+          <img src="{{ asset('rawThemes/staticImages/user.png') }}" class="img-circle" alt="User Image">
+        @endisset
+        
       </div>
       <div class="pull-left info">
         <p>{{ @Auth::user()->firstname." ".@Auth::user()->middlename." ".@Auth::user()->lastname }}</p>

@@ -118,7 +118,7 @@
 					<br>
 					<div class="container-fluid">
 						<div class="row">
-							<form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
+							<form action="{{ route('user.profilePhotoUpload') }}" method="post" class="form-horizontal" enctype="multipart/form-data">
 								{{ csrf_field() }}
 								{{ method_field('PUT') }}
 

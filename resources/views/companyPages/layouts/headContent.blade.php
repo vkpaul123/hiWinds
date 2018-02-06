@@ -36,6 +36,8 @@
 <!-- Modernizer Script for old Browsers -->
 <script src="{{ @asset('rawThemes/brandi/js/modernizr-2.6.2.min.js')}}"></script>
 
+<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" >
+
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>

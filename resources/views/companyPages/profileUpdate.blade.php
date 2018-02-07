@@ -112,7 +112,12 @@
 
 				<div class="box-body">
 					<center>
-						<img src="{{ asset('rawThemes/adminLTE/dist/img/user2-160x160.jpg') }}" alt="" class="img-rounded img-responsive img-thumbnail" height="100">
+						@isset(Auth::user()->photo)
+							<img src="{{ Auth::user()->photo }}" alt="" class="img-rounded img-responsive img-thumbnail" height="100">
+						@else
+							<img src="{{ asset('rawThemes/staticImages/user.png') }}" alt="" class="img-rounded img-responsive img-thumbnail" width="160px">
+						@endisset
+
 					</center>
 								
 					<br>

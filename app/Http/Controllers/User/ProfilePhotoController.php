@@ -31,9 +31,9 @@ class ProfilePhotoController extends Controller
 			else
 				$image = Image::make($request->file('photo'))->resize(160, 160)->encode('jpg');
 
-    		$t = Storage::disk('s3')->put('users/profile_pictures/'.$fileName, (string)$image, 'public');
+    		$t = Storage::disk('s3')->put('users/'.$user->id.'/'.$fileName, (string)$image, 'public');
 
-    		$fileName = Storage::disk('s3')->url('users/profile_pictures/'.$fileName);
+    		$fileName = Storage::disk('s3')->url('users/'.$user->id.'/'.$fileName);
 
     		$user->photo = $fileName;
 

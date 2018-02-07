@@ -27,7 +27,12 @@
 		<div class="box-header with-border">
 			<div class="row">
 				<div class="col-md-2">
-					<img src="{{ asset('rawThemes/adminLTE/dist/img/user2-160x160.jpg') }}" alt="Profile Picture" class="img-rounded img-responsive img-thumbnail">
+					@isset(Auth::user()->photo)
+						<img src="{{ Auth::user()->photo }}" alt="Profile Picture" class="img-rounded img-responsive img-thumbnail">
+					@else
+						<img src="{{ asset('rawThemes/staticImages/user.png') }}" alt="Profile Picture" class="img-rounded img-responsive img-thumbnail">
+					@endisset
+					
 				</div>
 				<div class="col-md-6">
 					<h2 class="text-success">{{ @Auth::user()->companyname }}</h2>

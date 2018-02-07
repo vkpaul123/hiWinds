@@ -14,7 +14,11 @@ class PythonRunnerTestController extends Controller
         $this->middleware('auth');
     }
 
-    public function pythonScript() {
+    public function pythonScript(Request $request) {
+    	$this->validate($request, [
+    		'myUrl' => 'required',
+    	]);
+
     	// $process = new Process('python3 /home/vkpaul123/Laravel-Projects/highWinds/pythontry.py');
     	// $process = new Process('python3 /pythonScripts/hello.py');
     	$process1 = new Process('pwd');
@@ -22,7 +26,7 @@ class PythonRunnerTestController extends Controller
 
     	$string = trim(preg_replace('/\s\s+/', ' ', $process1->getOutput()));
 
-    	$process = new Process('python3 '.$string.'/pythonScripts/hello.py');
+    	$process = new Process('python3 '.$string.'/pythonScripts/hello.py '.$request->myUrl);
 
     	$process->run();
 

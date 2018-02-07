@@ -35,7 +35,25 @@
         </div>
       </div>
       <div class="box-body">
-        Start creating your amazing application!
+        Start creating your amazing application! <br>
+
+        <form action="{{ route('python.test.url') }}" method="post" class="form-horizontal">
+          {{ csrf_field() }}
+
+          <div class="form-group{{ $errors->has('myUrl') ? ' has-error' : '' }}">
+            <label for="myUrl" class="col-md-3 control-label">URL<span class="text-red">*</span></label>
+            <div class="col-md-6">
+              <input type="text" class="form-control pull-right" id="myUrl" name="myUrl" placeholder="URL" value="{{ Auth::user()->myUrl }}">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-offset-5 col-md-2">
+              <button type="submit" class="btn btn-success btn-block pull-right"><strong>Submit</strong></button>
+            </div>
+          </div>
+
+        </form>
       </div>
       <!-- /.box-body -->
       <div class="box-footer">

@@ -46,7 +46,7 @@ Route::group(['namespace' => 'User'], function() {
 
 	Route::post('/windmill/excel/upload', 'WindmillExcelUploadController@uploadWindmills')->name('windmill.excel.upload');
 
-	Route::get('/home/runPython', 'PythonRunnerTestController@pythonScript');
+	Route::post('/home/runPython/', 'PythonRunnerTestController@pythonScript')->name('python.test.url');
 });
 
 //	ADMIN Routes

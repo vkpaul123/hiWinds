@@ -45,6 +45,8 @@ Route::group(['namespace' => 'User'], function() {
 	Route::put('/user/profilePhotoEdit', 'ProfilePhotoController@photoUpload')->name('user.profilePhotoUpload');
 
 	Route::post('/windmill/excel/upload', 'WindmillExcelUploadController@uploadWindmills')->name('windmill.excel.upload');
+
+	Route::get('/home/runPython', 'PythonRunnerTestController@pythonScript');
 });
 
 //	ADMIN Routes

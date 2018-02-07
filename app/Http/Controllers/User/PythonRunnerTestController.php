@@ -16,7 +16,9 @@ class PythonRunnerTestController extends Controller
 
     public function pythonScript() {
     	// $process = new Process('python3 /home/vkpaul123/Laravel-Projects/highWinds/pythontry.py');
-    	$process = new Process('python3 /pythonScripts/hello.py');
+    	// $process = new Process('python3 /pythonScripts/hello.py');
+
+    	$process = new Process('python3 /app/public/pythonScripts/hello.py');
 
     	$process->run();
 

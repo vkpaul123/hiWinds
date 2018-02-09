@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Windmill;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class WindmillController extends Controller
 {   
@@ -24,8 +26,11 @@ class WindmillController extends Controller
     {
         $windmills = Windmill::where('user_id', Auth::user()->id)->get();
 
+        $addresses = Address::all();
+
         return view('companyPages.windmill.windmillIndex')
-        ->with(compact('windmills'));
+        ->with(compact('windmills'))
+        ->with(compact('addresses'));
     }
 
     /**
@@ -140,5 +145,19 @@ class WindmillController extends Controller
         $windmill->delete();
 
         return redirect(route('windmill.index'));
+    }
+
+    public function downloadUploadTemplate()
+    {
+        $file = Storage::disk('s3')->get('addWindMills.xlsx');
+
+        $headers = [
+            'Content-Type' => 'application/vnd.ms-excel',
+            'Content-Description' => 'File Transfer',
+            'Content-Disposition' => "attachment; filename=addWindMills.xlsx",
+            'filename'=> 'addWindMills.xlsx'
+        ];
+
+        return response($file, 200, $headers);
     }
 }

@@ -50,6 +50,7 @@
 			<div class="box">
 				<div class="box-header with-border">
 					<h3>Graphs</h3>
+          <button id="refresh" class="btn pull-right">Refresh</button>
 				</div>
 
 				<div class="box-body">
@@ -196,195 +197,164 @@
          */
         // We use an inline data source in the example, usually data would
         // be fetched from a server
-        var data = [], totalPoints = 100
+        // var data = [], totalPoints = 100
 
-        function getRandomData() {
+        $(document).ready(function() {
+          update();
+        });
 
-          if (data.length > 0)
-            data = data.slice(1)
+        function update() {
+          
+          // event.preventDefault();
+          /* Act on the event */
 
-          // Do a random walk
-          while (data.length < totalPoints) {
+          $.ajax({
+            url: '{{ route('windmill.log.graphs', $id) }}',
+            type: 'GET',
+            dataType: 'json',
+            data: {},
+          })
+          .done(function(data) {
+            console.log("success");
+            var arr = Object.values(data);
+            arr.reverse();
 
-            var prev = data.length > 0 ? data[data.length - 1] : 50,
-                y    = prev + Math.random() * 10 - 5
+            var currentRes=[], voltageRes=[], powerRes=[], temperatureRes=[], humidityRes=[];
 
-            if (y < 0) {
-              y = 0
-            } else if (y > 100) {
-              y = 100
+            for (var i = 0; i < arr.length; i++) {
+              currentRes.push([i, arr[i].current]);
+              voltageRes.push([i, arr[i].voltage]);
+              powerRes.push([i, arr[i].power]);
+              temperatureRes.push([i, arr[i].temperature]);
+              humidityRes.push([i, arr[i].humidity]);
             }
 
-            data.push(y)
-          }
-
-          // Zip the generated y values with the x values
-          var res = []
-          for (var i = 0; i < data.length; ++i) {
-            res.push([i, data[i]])
-          }
-
-          return res
+            var interactive_plot_power = $.plot('#interactive-power', [powerRes], {
+              grid  : {
+                borderColor: '#f3f3f3',
+                borderWidth: 1,
+                tickColor  : '#f3f3f3'
+              },
+              series: {
+                shadowSize: 0, // Drawing is faster without shadows
+                color     : '#00a65a'
+              },
+              lines : {
+                fill : true, //Converts the line chart to area chart
+                color: '#00a65a'
+              },
+              yaxis : {
+                min : 0,
+                max : 1000,
+                show: true
+              },
+              xaxis : {
+                show: true
+              }
+            });
+            var interactive_plot_power = $.plot('#interactive-current', [currentRes], {
+              grid  : {
+                borderColor: '#f3f3f3',
+                borderWidth: 1,
+                tickColor  : '#f3f3f3'
+              },
+              series: {
+                shadowSize: 0, // Drawing is faster without shadows
+                color     : '#00a65a'
+              },
+              lines : {
+                fill : true, //Converts the line chart to area chart
+                color: '#00a65a'
+              },
+              yaxis : {
+                min : 0,
+                max : 50,
+                show: true
+              },
+              xaxis : {
+                show: true
+              }
+            });
+            var interactive_plot_power = $.plot('#interactive-voltage', [voltageRes], {
+              grid  : {
+                borderColor: '#f3f3f3',
+                borderWidth: 1,
+                tickColor  : '#f3f3f3'
+              },
+              series: {
+                shadowSize: 0, // Drawing is faster without shadows
+                color     : '#00a65a'
+              },
+              lines : {
+                fill : true, //Converts the line chart to area chart
+                color: '#00a65a'
+              },
+              yaxis : {
+                min : 0,
+                max : 100,
+                show: true
+              },
+              xaxis : {
+                show: true
+              }
+            });
+            var interactive_plot_power = $.plot('#interactive-temperature', [temperatureRes], {
+              grid  : {
+                borderColor: '#f3f3f3',
+                borderWidth: 1,
+                tickColor  : '#f3f3f3'
+              },
+              series: {
+                shadowSize: 0, // Drawing is faster without shadows
+                color     : '#00a65a'
+              },
+              lines : {
+                fill : true, //Converts the line chart to area chart
+                color: '#00a65a'
+              },
+              yaxis : {
+                min : 0,
+                max : 100,
+                show: true
+              },
+              xaxis : {
+                show: true
+              }
+            });
+            var interactive_plot_power = $.plot('#interactive-humidity', [humidityRes], {
+              grid  : {
+                borderColor: '#f3f3f3',
+                borderWidth: 1,
+                tickColor  : '#f3f3f3'
+              },
+              series: {
+                shadowSize: 0, // Drawing is faster without shadows
+                color     : '#00a65a'
+              },
+              lines : {
+                fill : true, //Converts the line chart to area chart
+                color: '#00a65a'
+              },
+              yaxis : {
+                min : 0,
+                max : 100,
+                show: true
+              },
+              xaxis : {
+                show: true
+              }
+            });
+          })
+          .fail(function() {
+            console.log("error");
+          })
+          .always(function() {
+            console.log("complete");
+          });
+          
+          setTimeout(update, 5000);
         }
 
-        var interactive_plot_power = $.plot('#interactive-power', [getRandomData()], {
-          grid  : {
-            borderColor: '#f3f3f3',
-            borderWidth: 1,
-            tickColor  : '#f3f3f3'
-          },
-          series: {
-            shadowSize: 0, // Drawing is faster without shadows
-            color     : '#00a65a'
-          },
-          lines : {
-            fill : true, //Converts the line chart to area chart
-            color: '#00a65a'
-          },
-          yaxis : {
-            min : 0,
-            max : 100,
-            show: true
-          },
-          xaxis : {
-            show: true
-          }
-        })
-
-        var interactive_plot_current = $.plot('#interactive-current', [getRandomData()], {
-          grid  : {
-            borderColor: '#f3f3f3',
-            borderWidth: 1,
-            tickColor  : '#f3f3f3'
-          },
-          series: {
-            shadowSize: 0, // Drawing is faster without shadows
-            color     : '#00a65a'
-          },
-          lines : {
-            fill : true, //Converts the line chart to area chart
-            color: '#00a65a'
-          },
-          yaxis : {
-            min : 0,
-            max : 100,
-            show: true
-          },
-          xaxis : {
-            show: true
-          }
-        })
-
-        var interactive_plot_voltage = $.plot('#interactive-voltage', [getRandomData()], {
-          grid  : {
-            borderColor: '#f3f3f3',
-            borderWidth: 1,
-            tickColor  : '#f3f3f3'
-          },
-          series: {
-            shadowSize: 0, // Drawing is faster without shadows
-            color     : '#00a65a'
-          },
-          lines : {
-            fill : true, //Converts the line chart to area chart
-            color: '#00a65a'
-          },
-          yaxis : {
-            min : 0,
-            max : 100,
-            show: true
-          },
-          xaxis : {
-            show: true
-          }
-        })
-
-        var interactive_plot_temperature = $.plot('#interactive-temperature', [getRandomData()], {
-          grid  : {
-            borderColor: '#f3f3f3',
-            borderWidth: 1,
-            tickColor  : '#f3f3f3'
-          },
-          series: {
-            shadowSize: 0, // Drawing is faster without shadows
-            color     : '#00a65a'
-          },
-          lines : {
-            fill : true, //Converts the line chart to area chart
-            color: '#00a65a'
-          },
-          yaxis : {
-            min : 0,
-            max : 100,
-            show: true
-          },
-          xaxis : {
-            show: true
-          }
-        })
-
-        var interactive_plot_humidity = $.plot('#interactive-humidity', [getRandomData()], {
-          grid  : {
-            borderColor: '#f3f3f3',
-            borderWidth: 1,
-            tickColor  : '#f3f3f3'
-          },
-          series: {
-            shadowSize: 0, // Drawing is faster without shadows
-            color     : '#00a65a'
-          },
-          lines : {
-            fill : true, //Converts the line chart to area chart
-            color: '#00a65a'
-          },
-          yaxis : {
-            min : 0,
-            max : 100,
-            show: true
-          },
-          xaxis : {
-            show: true
-          }
-        })
-
-        var updateInterval = 500 //Fetch data ever x milliseconds
-        var realtime       = 'on' //If == to on then fetch data every x seconds. else stop fetching
-        function update() {
-
-          interactive_plot_power.setData([getRandomData()])
-          interactive_plot_current.setData([getRandomData()])
-          interactive_plot_voltage.setData([getRandomData()])
-          interactive_plot_temperature.setData([getRandomData()])
-          interactive_plot_humidity.setData([getRandomData()])
-
-          // Since the axes don't change, we don't need to call plot.setupGrid()
-          interactive_plot_power.draw()
-          interactive_plot_current.draw()
-          interactive_plot_voltage.draw()
-          interactive_plot_temperature.draw()
-          interactive_plot_humidity.draw()
-
-          if (realtime === 'on')
-            setTimeout(update, updateInterval)
-        }
-
-        //INITIALIZE REALTIME DATA FETCHING
-        if (realtime === 'on') {
-          update()
-        }
-        //REALTIME TOGGLE
-        $('#realtime .btn').click(function () {
-          if ($(this).data('toggle') === 'on') {
-            realtime = 'on'
-          }
-          else {
-            realtime = 'off'
-          }
-          update()
-        })
-        /*
-         * END INTERACTIVE CHART
-         */
 	  })
 	</script>
 @endsection

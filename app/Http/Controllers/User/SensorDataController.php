@@ -14,10 +14,29 @@ class SensorDataController extends Controller
     }
 
     public function showWindmillLog($id) {
-    	$sensors = Windmill::find($id)->sensor()->get();
+        $sensors = Windmill::find($id)->masterlog();
+        $graphs = $sensors
+                    ->orderBy('id', 'desc')
+                    ->get()
+                    ->take(2)
+                    ->reverse();
+
+    	$sensors = $sensors->get();
 
     	return view('companyPages.windmill.windmillLog')
     	->with(compact('sensors'))
+        ->with(compact('graphs'))
     	->with(compact('id'));
+    }
+
+    public function loadGraph($id) {
+        $graphs = Windmill::find($id)
+                    ->masterlog()
+                    ->orderBy('id', 'desc')
+                    ->get()
+                    ->take(100)
+                    ->reverse();
+
+        return response()->json($graphs);
     }
 }

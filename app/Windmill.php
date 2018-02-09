@@ -17,4 +17,8 @@ class Windmill extends Model
     public function sensor() {
     	return $this->hasMany(Sensor::class);
     }
+
+    public function masterlog() {
+    	return $this->hasMany(Masterlog::class);
+    }
 }

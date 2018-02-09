@@ -24,6 +24,8 @@ class CreateWindmillsTable extends Migration
             $table->double('ratedrpm', 8, 2)->nullable();
             $table->double('rotordiameter', 8, 2)->nullable();
 
+            $table->string('csvfile')->nullable();
+
             $table->integer('address_id')->nullable();
 
             $table->timestamps();

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSensorsTable extends Migration
+class CreateMasterlogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSensorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sensors', function (Blueprint $table) {
+        Schema::create('masterlogs', function (Blueprint $table) {
             $table->increments('id');
 
             $table->integer('windmill_id');
@@ -23,10 +23,6 @@ class CreateSensorsTable extends Migration
             $table->double('power', 8,4);
             $table->double('humidity', 8, 4);
             $table->double('temperature', 8, 4);
-
-            $table->string('region')->nullable();
-            $table->string('district')->nullable();
-            $table->string('state')->nullable();
             
             $table->timestamps();
         });
@@ -39,6 +35,6 @@ class CreateSensorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sensors');
+        Schema::dropIfExists('masterlogs');
     }
 }

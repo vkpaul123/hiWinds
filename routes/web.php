@@ -38,6 +38,7 @@ Route::group(['namespace' => 'User'], function() {
 	Route::resource('/windmill','WindmillController');
 	Route::resource('/windmillAddress', 'WindmillAddressController');
 	Route::get('/windmill/{id}/log', 'SensorDataController@showWindmillLog')->name('windmill.log');
+	Route::get('/windmill/{id}/log/load', 'SensorDataController@loadGraph')->name('windmill.log.graphs');
 
 	Route::get('/user/profileView','ShowUserProfileController@showProfile')->name('user.viewProfile');
 	Route::get('/user/profileEdit','ShowUserProfileController@editProfile')->name('user.profileEdit');
@@ -45,6 +46,7 @@ Route::group(['namespace' => 'User'], function() {
 	Route::put('/user/profilePhotoEdit', 'ProfilePhotoController@photoUpload')->name('user.profilePhotoUpload');
 
 	Route::post('/windmill/excel/upload', 'WindmillExcelUploadController@uploadWindmills')->name('windmill.excel.upload');
+	Route::get('/windmill/get/uploadTemplate', 'WindmillController@downloadUploadTemplate')->name('windmill.excel.downloadTemplate');
 
 	Route::post('/home/runPython/', 'PythonRunnerTestController@pythonScript')->name('python.test.url');
 });

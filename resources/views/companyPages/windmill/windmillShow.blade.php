@@ -143,7 +143,7 @@
 					
 					<div class="box-body">
 						<div class="container-fluid">
-						@if($address->count() != 0)
+						@if($address->count() != null)
 							<div class="row">
 								<div class="col-md-2 col-xs-4">
 									<strong class="text-success">Street</strong>

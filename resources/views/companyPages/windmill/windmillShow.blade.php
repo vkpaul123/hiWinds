@@ -143,7 +143,7 @@
 					
 					<div class="box-body">
 						<div class="container-fluid">
-						@if($address->count() != null)
+						@isset($address)
 							<div class="row">
 								<div class="col-md-2 col-xs-4">
 									<strong class="text-success">Street</strong>
@@ -218,8 +218,8 @@
 							</div>
 						</center>
 
-						@endif
-
+						@endisset
+						
 						</div>
 					</div>
 				</div>

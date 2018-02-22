@@ -65,5 +65,7 @@ class SensorController extends Controller
                 Sensor::find($mill->id)->delete();
             }
         }
+
+        return "Stored";
     }
 }

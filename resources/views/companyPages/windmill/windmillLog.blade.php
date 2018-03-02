@@ -66,7 +66,7 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-6 col-lg-6">
+							{{-- <div class="col-md-6 col-lg-6">
 								<div class="box box-success">
 									<div class="box-header with-border">
 										<h4 class="text-success">Current</h4>
@@ -75,8 +75,8 @@
 										<div id="interactive-current" style="height: 300px"></div>
 									</div>
 								</div>
-							</div>
-							<div class="col-md-6 col-lg-6">
+							</div> --}}
+							<div class="col-md-12 col-lg-12">
 								<div class="box box-success">
 									<div class="box-header with-border">
 										<h4 class="text-success">Voltage</h4>
@@ -123,9 +123,8 @@
 					<table class="table table-bordered table-hover" id="sensorLog">
 						<thead>
 							<tr>
-								<th><span class="text-success">Current (A)</span></th>
 								<th><span class="text-success">Voltage (V)</span></th>
-								<th><span class="text-success">Power (W)</span></th>
+								<th><span class="text-success">Power (mW)</span></th>
 								<th><span class="text-success">Temprature (&degC)</span></th>
 								<th><span class="text-success">Humidity (%)</span></th>
 								<th><span class="text-success">Timestamp</span></th>
@@ -136,7 +135,7 @@
 							@foreach ($sensors as $sensor)
 							
 							<tr>
-								<td>{{ $sensor->current }}</td>
+								{{-- <td>{{ $sensor->current }}</td> --}}
 								<td>{{ $sensor->voltage }}</td>
 								<td>{{ $sensor->power }}</td>
 								<td>{{ $sensor->temperature }}</td>
@@ -149,9 +148,8 @@
 
 						<tfoot>
 							<tr>
-								<th><span class="text-success">Current (A)</span></th>
 								<th><span class="text-success">Voltage (V)</span></th>
-								<th><span class="text-success">Power (W)</span></th>
+								<th><span class="text-success">Power (mW)</span></th>
 								<th><span class="text-success">Temprature (&degC)</span></th>
 								<th><span class="text-success">Humidity (%)</span></th>
 								<th><span class="text-success">Timestamp</span></th>

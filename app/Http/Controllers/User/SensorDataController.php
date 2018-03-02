@@ -18,7 +18,7 @@ class SensorDataController extends Controller
         $graphs = $sensors
                     ->orderBy('id', 'desc')
                     ->get()
-                    ->take(2)
+                    // ->take(2)
                     ->reverse();
 
     	$sensors = $sensors->get();

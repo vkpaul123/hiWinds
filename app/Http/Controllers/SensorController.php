@@ -13,13 +13,13 @@ use SoapBox\Formatter\Formatter;
 
 class SensorController extends Controller
 {
-    public function store($windmill_id, $current , $voltage, $humidity, $temperature) {
+    public function store($windmill_id, $voltage, $humidity, $temperature) {
         $sensor = new Sensor;
 
         $sensor->windmill_id = $windmill_id;
-        $sensor->current = $current;
+        // $sensor->current = $current;
         $sensor->voltage = $voltage;
-        $sensor->power = $current * $voltage;
+        $sensor->power = $voltage*$voltage;
         $sensor->humidity = $humidity;
         $sensor->temperature = $temperature;
 
@@ -34,9 +34,9 @@ class SensorController extends Controller
 
         $masterlog = new Masterlog;
         $masterlog->windmill_id = $windmill_id;
-        $masterlog->current = $current;
+        // $masterlog->current = $current;
         $masterlog->voltage = $voltage;
-        $masterlog->power = $current * $voltage;
+        $masterlog->power = $voltage * $voltage;
         $masterlog->humidity = $humidity;
         $masterlog->temperature = $temperature;
         $masterlog->save();

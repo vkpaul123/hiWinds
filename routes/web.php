@@ -27,7 +27,7 @@ Route::get('/welcome', function() {
 Auth::routes();
 
 //	Store sensor data into database 
-Route::get('/store/{windmill_id}/{current}/{voltage}/{humidity}/{temperature}', 'SensorController@store');
+Route::get('/store/{windmill_id}/{voltage}/{humidity}/{temperature}', 'SensorController@store');
 
 //	USER/COMPANY Routes
 Route::group(['namespace' => 'User'], function() {

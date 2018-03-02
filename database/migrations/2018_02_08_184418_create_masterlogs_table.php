@@ -18,7 +18,7 @@ class CreateMasterlogsTable extends Migration
 
             $table->integer('windmill_id');
 
-            $table->double('current', 8, 4);
+            // $table->double('current', 8, 4);
             $table->double('voltage', 8, 4);
             $table->double('power', 8,4);
             $table->double('humidity', 8, 4);

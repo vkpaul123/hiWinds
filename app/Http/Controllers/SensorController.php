@@ -42,7 +42,7 @@ class SensorController extends Controller
         $masterlog->save();
 
         $allWindMills = Sensor::where('windmill_id', $windmill_id);
-    	if($allWindMills->get()->count() == 72) {
+    	if($allWindMills->get()->count() == 5) {
             $last100Mills = $allWindMills->get();
             $last100 = $last100Mills->toArray();
 

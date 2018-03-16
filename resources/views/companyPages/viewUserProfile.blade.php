@@ -74,6 +74,7 @@
 											<h4 class="text-success"><strong>Address</strong></h4><br>
 										</div>
 									</div>
+									@isset($address)
 									<div class="row">
 										<div class="col-md-6 col-xs-4"><strong class="text-success">Street</strong></div>
 										<div class="col-md-6 col-xs-8">{{ $address->street }}</div>
@@ -118,6 +119,14 @@
 										<div class="col-md-6 col-xs-4"><strong class="text-success">Website</strong></div>
 										<div class="col-md-6 col-xs-8"><a href="http://{{ $address->website }}" class="text-info" target="_blank">{{ $address->website }}</a></div>
 									</div>
+									@else
+										<center>
+											<div class="jumbotron">
+												<h4 class="text-danger"><i class="fa fa-exclamation-triangle" style="font-size: 2em;"></i><br>Address Not Found!<br><small>Address not added for this Profile. Please add an address.</small></h4><hr>
+												<a href="{{ route('address.create') }}" class="btn btn-primary pull-right"><strong>Add Address</strong></a>
+											</div>
+										</center>
+									@endisset
 								</div>
 							</div>
 						</div>

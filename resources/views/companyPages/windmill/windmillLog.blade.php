@@ -243,7 +243,7 @@
               },
               yaxis : {
                 min : 0,
-                max : 2,
+                max : 1,
                 show: true
               },
               xaxis : {
@@ -289,7 +289,7 @@
               },
               yaxis : {
                 min : 0,
-                max : 2,
+                max : 1,
                 show: true
               },
               xaxis : {

@@ -243,14 +243,14 @@
               },
               yaxis : {
                 min : 0,
-                max : 1000,
+                max : 2,
                 show: true
               },
               xaxis : {
                 show: true
               }
             });
-            var interactive_plot_power = $.plot('#interactive-current', [currentRes], {
+            var interactive_plot_curr = $.plot('#interactive-current', [currentRes], {
               grid  : {
                 borderColor: '#f3f3f3',
                 borderWidth: 1,
@@ -273,7 +273,7 @@
                 show: true
               }
             });
-            var interactive_plot_power = $.plot('#interactive-voltage', [voltageRes], {
+            var interactive_plot_voltage = $.plot('#interactive-voltage', [voltageRes], {
               grid  : {
                 borderColor: '#f3f3f3',
                 borderWidth: 1,
@@ -289,14 +289,14 @@
               },
               yaxis : {
                 min : 0,
-                max : 100,
+                max : 2,
                 show: true
               },
               xaxis : {
                 show: true
               }
             });
-            var interactive_plot_power = $.plot('#interactive-temperature', [temperatureRes], {
+            var interactive_plot_temp = $.plot('#interactive-temperature', [temperatureRes], {
               grid  : {
                 borderColor: '#f3f3f3',
                 borderWidth: 1,
@@ -312,14 +312,14 @@
               },
               yaxis : {
                 min : 0,
-                max : 100,
+                max : 70,
                 show: true
               },
               xaxis : {
                 show: true
               }
             });
-            var interactive_plot_power = $.plot('#interactive-humidity', [humidityRes], {
+            var interactive_plot_hume = $.plot('#interactive-humidity', [humidityRes], {
               grid  : {
                 borderColor: '#f3f3f3',
                 borderWidth: 1,

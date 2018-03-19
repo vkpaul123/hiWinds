@@ -22,11 +22,11 @@ Home Slider
 		<div class="carousel-inner" role="listbox">
 
 			<!-- single slide -->
-			<div class="item active" style="background-image: url({{ @asset('rawThemes/brandi/img/banner.jpg') }});">
+			<div class="item active" style="background-image: url({{ @asset('rawThemes/brandi/img/banner1.jpg') }});">
 				<div class="carousel-caption">
 					<h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated">High<span>Winds</span></h2>
-					<h3 data-wow-duration="1000ms" class="wow slideInLeft animated"><span class="color">/creative</span> one page template.</h3>
-					<p data-wow-duration="1000ms" class="wow slideInRight animated">We are a team of professionals</p>
+					<h3 data-wow-duration="1000ms" class="wow slideInLeft animated"><span class="color">/monitoring</span> Wind-turbine data from Highways.</h3>
+					<p data-wow-duration="1000ms" class="wow slideInRight animated">Wind-Turbines on high-ways</p>
 
 					<ul class="social-links text-center">
 						<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
@@ -39,11 +39,11 @@ Home Slider
 			<!-- end single slide -->
 
 			<!-- single slide -->
-			<div class="item" style="background-image: url({{ @asset('rawThemes/brandi/img/banner.jpg')}});">
+			<div class="item" style="background-image: url({{ @asset('rawThemes/brandi/img/banner2.jpg')}});">
 				<div class="carousel-caption">
 					<h2 data-wow-duration="500ms" data-wow-delay="500ms" class="wow bounceInDown animated">Monitoring<span> LIVE</span>!</h2>
-					<h3 data-wow-duration="500ms" class="wow slideInLeft animated"><span class="color">/creative</span> one page template.</h3>
-					<p data-wow-duration="500ms" class="wow slideInRight animated">We are a team of professionals</p>
+					<h3 data-wow-duration="500ms" class="wow slideInLeft animated"><span class="color">/Live</span> 24/7 monitoring.</h3>
+					<p data-wow-duration="500ms" class="wow slideInRight animated">We use Internet of Things</p>
 
 					<ul class="social-links text-center">
 						<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
@@ -87,7 +87,7 @@ Features
 
 					<div class="service-desc">
 						<h3><span class="text-success">Commercial</span></h3>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore</p>
+						<p>Log in to a Commercial Profile meant for the Wind-turbines owners on the Stretch of highways.</p>
 						<br>
 						<a href="/login" class="btn btn-lg btn-success">
 							@guest
@@ -110,29 +110,12 @@ Features
 
 					<div class="service-desc">
 						<h3><span class="text-muted">Casual</span></h3>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore</p>
+						<p>Explore through the casual services as a researcher for surveys and scholarly works. Of Course, we take permissions from the owners first!</p>
 						<br>
 						<a href="/user" class="btn btn-lg btn-default">Casual Use</a>
 					</div>
 				</div>
 			</div>
-			<!-- end service item -->
-
-			{{-- <!-- service item -->
-			<div class="col-md-4 wow fadeInRight" data-wow-duration="500ms"  data-wow-delay="900ms">
-				<div class="service-item">
-					<div class="service-icon">
-						<i class="fa fa-bullhorn fa-2x"></i>
-					</div>
-
-					<div class="service-desc">
-						<h3>Consulting</h3>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore</p>
-					</div>
-				</div>
-			</div>
-			<!-- end service item --> --}}
-
 		</div>
 	</div>
 </section>
@@ -157,16 +140,16 @@ Our Works
 			</div>
 
 			<div class="sec-sub-title text-center">
-				<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore</p>
+				<p>We Provide numerous services that will help your wind-turbines to function properly by keeping a track of their performance on a timely basis.</p>
 			</div>
 
 			<div class="work-filter wow fadeInRight animated" data-wow-duration="500ms">
 				<ul class="text-center">
 					<li><a href="javascript:;" data-filter="all" class="active filter">All</a></li>
-					<li><a href="javascript:;" data-filter=".branding" class="filter">Branding</a></li>
-					<li><a href="javascript:;" data-filter=".web" class="filter">web</a></li>
-					<li><a href="javascript:;" data-filter=".logo-design" class="filter">logo design</a></li>
-					<li><a href="javascript:;" data-filter=".photography" class="filter">photography</a></li>
+					<li><a href="javascript:;" data-filter=".branding" class="filter">Authentication</a></li>
+					<li><a href="javascript:;" data-filter=".web" class="filter">Wind-Turbine Management</a></li>
+					<li><a href="javascript:;" data-filter=".logo-design" class="filter">Detailed Reports</a></li>
+					<li><a href="javascript:;" data-filter=".photography" class="filter">Analytical Predictions</a></li>
 				</ul>
 			</div>
 
@@ -179,8 +162,8 @@ Our Works
 			<img src="{{ @asset('rawThemes/brandi/img/works/item-1.jpg')}}" alt="">
 			<figcaption class="overlay">
 				<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="{{ @asset('rawThemes/brandi/img/works/item-1.jpg')}}"><i class="fa fa-eye fa-lg"></i></a>
-				<h4>Labore et dolore magnam</h4>
-				<p>Photography</p>
+				<h4>Company User Authentication</h4>
+				<p>Authentication</p>
 			</figcaption>
 		</figure>
 
@@ -188,8 +171,8 @@ Our Works
 			<img src="{{ @asset('rawThemes/brandi/img/works/item-2.jpg')}}" alt="">
 			<figcaption class="overlay">
 				<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="{{ @asset('rawThemes/brandi/img/works/item-2.jpg')}}"><i class="fa fa-eye fa-lg"></i></a>
-				<h4>Labore et dolore magnam</h4>
-				<p>Photography</p>
+				<h4>Add and View Wind-Turbines</h4>
+				<p>Wind-Turbine Management</p>
 			</figcaption>
 		</figure>
 
@@ -197,8 +180,8 @@ Our Works
 			<img src="{{ @asset('rawThemes/brandi/img/works/item-3.jpg')}}" alt="">
 			<figcaption class="overlay">
 				<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="{{ @asset('rawThemes/brandi/img/works/item-3.jpg')}}"><i class="fa fa-eye fa-lg"></i></a>
-				<h4>Labore et dolore magnam</h4>
-				<p>Photography</p>
+				<h4>Detailed reports of the Wind-turbine Logs</h4>
+				<p>Detailed Reports</p>
 			</figcaption>
 		</figure>
 
@@ -206,8 +189,8 @@ Our Works
 			<img src="{{ @asset('rawThemes/brandi/img/works/item-4.jpg')}}" alt="">
 			<figcaption class="overlay">
 				<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="{{ @asset('rawThemes/brandi/img/works/item-4.jpg')}}"><i class="fa fa-eye fa-lg"></i></a>
-				<h4>Labore et dolore magnam</h4>
-				<p>Photography</p>
+				<h4>Power-generation prediction for Wind-turbine</h4>
+				<p>Analytical Predictions</p>
 			</figcaption>
 		</figure>
 
@@ -215,8 +198,8 @@ Our Works
 			<img src="{{ @asset('rawThemes/brandi/img/works/item-5.jpg')}}" alt="">
 			<figcaption class="overlay">
 				<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="{{ @asset('rawThemes/brandi/img/works/item-5.jpg')}}"><i class="fa fa-eye fa-lg"></i></a>
-				<h4>Labore et dolore magnam</h4>
-				<p>Photography</p>
+				<h4>Company User Account Registration</h4>
+				<p>Authentication</p>
 			</figcaption>
 		</figure>
 
@@ -224,8 +207,8 @@ Our Works
 			<img src="{{ @asset('rawThemes/brandi/img/works/item-6.jpg')}}" alt="">
 			<figcaption class="overlay">
 				<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="{{ @asset('rawThemes/brandi/img/works/item-6.jpg')}}"><i class="fa fa-eye fa-lg"></i></a>
-				<h4>Labore et dolore magnam</h4>
-				<p>Photography</p>
+				<h4>Update and Delete Wind-Turbine if needed</h4>
+				<p>Wind-Turbine Management</p>
 			</figcaption>
 		</figure>
 
@@ -233,8 +216,8 @@ Our Works
 			<img src="{{ @asset('rawThemes/brandi/img/works/item-7.jpg')}}" alt="">
 			<figcaption class="overlay">
 				<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="{{ @asset('rawThemes/brandi/img/works/item-7.jpg')}}"><i class="fa fa-eye fa-lg"></i></a>
-				<h4>Labore et dolore magnam</h4>
-				<p>Photography</p>
+				<h4>Detailed reports of the Locations</h4>
+				<p>Detailed Reports</p>
 			</figcaption>
 		</figure>
 
@@ -242,8 +225,8 @@ Our Works
 			<img src="{{ @asset('rawThemes/brandi/img/works/item-8.jpg')}}" alt="">
 			<figcaption class="overlay">
 				<a class="fancybox" rel="works" title="Write Your Image Caption Here" href="{{ @asset('rawThemes/brandi/img/works/item-8.jpg')}}"><i class="fa fa-eye fa-lg"></i></a>
-				<h4>Labore et dolore magnam</h4>
-				<p>Photography</p>
+				<h4>Power-generation prediction for Area</h4>
+				<p>Analytical Predictions</p>
 			</figcaption>
 		</figure>
 
@@ -270,7 +253,7 @@ Meet Our Team
 			</div>
 
 			<div class="sec-sub-title text-center wow fadeInRight animated" data-wow-duration="500ms">
-				<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore</p>
+				<p>We have an efficient team of smart-working people who are innovative in their ideas.</p>
 			</div>
 			
 			<!-- single member -->
@@ -278,8 +261,8 @@ Meet Our Team
 				<div class="member-thumb">
 					<img src="{{ @asset('rawThemes/brandi/img/team/member-1.png')}}" alt="Team Member" class="img-responsive">
 					<figcaption class="overlay">
-						<h5>voluptatem quia voluptas </h5>
-						<p>sit aspernatur aut odit aut fugit,</p>
+						<h5>Pratiksha Sisodia <small> - MD</small></h5>
+						<p>pratiksha.sisodia @mca.christuniversity.in</p>
 						<ul class="social-links text-center">
 							<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
 							<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
@@ -297,8 +280,8 @@ Meet Our Team
 				<div class="member-thumb">
 					<img src="{{ @asset('rawThemes/brandi/img/team/member-2.png')}}" alt="Team Member" class="img-responsive">
 					<figcaption class="overlay">
-						<h5>voluptatem quia voluptas </h5>
-						<p>sit aspernatur aut odit aut fugit,</p>
+						<h5>Vikramsinh Dantkale <small> - Lead Dev</small></h5>
+						<p>vikramsinh.dantkale @mca.christuniversity.in</p>
 						<ul class="social-links text-center">
 							<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
 							<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
@@ -316,8 +299,8 @@ Meet Our Team
 				<div class="member-thumb">
 					<img src="{{ @asset('rawThemes/brandi/img/team/member-3.png')}}" alt="Team Member" class="img-responsive">
 					<figcaption class="overlay">
-						<h5>voluptatem quia voluptas </h5>
-						<p>sit aspernatur aut odit aut fugit,</p>
+						<h5>Jishnu Raj <small> - UI Design</small></h5>
+						<p>jishnu.raj @mca.christuniversity.in</p>
 						<ul class="social-links text-center">
 							<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
 							<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
@@ -330,13 +313,13 @@ Meet Our Team
 			</figure>
 			<!-- end single member -->
 
-			{{-- <!-- single member -->
+			<!-- single member -->
 			<figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="900ms">
 				<div class="member-thumb">
 					<img src="{{ @asset('rawThemes/brandi/img/team/member-1.png')}}" alt="Team Member" class="img-responsive">
 					<figcaption class="overlay">
-						<h5>voluptatem quia voluptas </h5>
-						<p>sit aspernatur aut odit aut fugit,</p>
+						<h5>Prof. Kavita R <small> - Project Guide</small></h5>
+						<p>kavita.r @christuniversity.in</p>
 						<ul class="social-links text-center">
 							<li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
 							<li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
@@ -344,10 +327,10 @@ Meet Our Team
 						</ul>
 					</figcaption>
 				</div>
-				<h4>John Filmr Doe</h4>
-				<span>Managing Director</span>
+				<h4>Prof. Kavita R</h4>
+				<span>Project Guide</span>
 			</figure>
-			<!-- end single member --> --}}
+			<!-- end single member -->
 
 		</div>
 	</div>
@@ -393,7 +376,7 @@ Some fun facts
 						<i class="fa fa-rocket fa-3x"></i>
 						<strong data-to="360">0</strong>
 						<!-- Set Your Number here. i,e. data-to="56" -->
-						<p> Projects Delivered </p>
+						<p>Wind-Turbines</p>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="900ms">
@@ -401,7 +384,7 @@ Some fun facts
 						<i class="fa fa-trophy fa-3x"></i>
 						<strong data-to="6454">0</strong>
 						<!-- Set Your Number here. i,e. data-to="56" -->
-						<p>Awards Won</p>
+						<p>Log Records</p>
 					</div>
 				</div>
 				<!-- end first count item -->
@@ -430,16 +413,18 @@ Contact Us
 			</div>
 
 			<div class="sec-sub-title text-center wow rubberBand animated" data-wow-duration="1000ms">
-				<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore</p>
+				<p>You can get in touch with us by sending a message to us.</p>
 			</div>
 
 			<!-- contact address -->
 			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 wow fadeInLeft animated" data-wow-duration="500ms">
 				<div class="contact-address">
-					<h3>Cras at ultrices erat, sed vulputate!</h3>
-					<p>2345 Setwant natrer, 1234,</p>
-					<p>Washington. United States.</p>
-					<p>(401) 1234 567</p>
+					<h3>Or Write to us on this address.</h3>
+					<p>CHRIST (Deemed to be University),</p>
+					<p>Hosur Main Road,</p>
+					<p>Koramanagala,</p>
+					<p>Bengaluru - 560029</p>
+					<p>(+91) 080 2456123</p>
 				</div>
 			</div>
 			<!-- end contact address -->
@@ -504,7 +489,7 @@ End Contact Us
 					    High<strong>Winds</strong>
 					    {{-- <img height="27px" src="{{ @asset('rawThemes/brandi/img/logo.png')}}" alt="Brandi"> --}}
 					</h2>
-					<p>eusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					<p>is a monitoring platform that built on IoT that is used for monitoring the electrical power generated by Wind-Turbine on the Highways, with climatic monitoring as well. We also provide predictive analysis based on Machine Learning for our users.</p>
 				</div>
 			</div>
 
@@ -515,7 +500,7 @@ End Contact Us
 						<input type="text" name="subscribe" id="subscribe">
 						<input type="submit" value="&#8594;" id="subs">
 					</form>
-					<p>eusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+					<p>Get regular notifications from our services. </p>
 				</div>
 			</div>
 

@@ -66,16 +66,6 @@
 							</div>
 						</div>
 						<div class="row">
-							{{-- <div class="col-md-6 col-lg-6">
-								<div class="box box-success">
-									<div class="box-header with-border">
-										<h4 class="text-success">Current</h4>
-									</div>
-									<div class="panel-body">
-										<div id="interactive-current" style="height: 300px"></div>
-									</div>
-								</div>
-							</div> --}}
 							<div class="col-md-12 col-lg-12">
 								<div class="box box-success">
 									<div class="box-header with-border">
@@ -217,10 +207,9 @@
             var arr = Object.values(data);
             arr.reverse();
 
-            var currentRes=[], voltageRes=[], powerRes=[], temperatureRes=[], humidityRes=[];
+            var voltageRes=[], powerRes=[], temperatureRes=[], humidityRes=[];
 
             for (var i = 0; i < arr.length; i++) {
-              currentRes.push([i, arr[i].current]);
               voltageRes.push([i, arr[i].voltage]);
               powerRes.push([i, arr[i].power]);
               temperatureRes.push([i, arr[i].temperature]);
@@ -244,29 +233,6 @@
               yaxis : {
                 min : 0,
                 max : 1,
-                show: true
-              },
-              xaxis : {
-                show: true
-              }
-            });
-            var interactive_plot_curr = $.plot('#interactive-current', [currentRes], {
-              grid  : {
-                borderColor: '#f3f3f3',
-                borderWidth: 1,
-                tickColor  : '#f3f3f3'
-              },
-              series: {
-                shadowSize: 0, // Drawing is faster without shadows
-                color     : '#00a65a'
-              },
-              lines : {
-                fill : true, //Converts the line chart to area chart
-                color: '#00a65a'
-              },
-              yaxis : {
-                min : 0,
-                max : 50,
                 show: true
               },
               xaxis : {

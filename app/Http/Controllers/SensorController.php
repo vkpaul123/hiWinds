@@ -17,7 +17,6 @@ class SensorController extends Controller
         $sensor = new Sensor;
 
         $sensor->windmill_id = $windmill_id;
-        // $sensor->current = $current;
         $sensor->voltage = $voltage;
         $sensor->power = $voltage*$voltage;
         $sensor->humidity = $humidity;
@@ -34,7 +33,6 @@ class SensorController extends Controller
 
         $masterlog = new Masterlog;
         $masterlog->windmill_id = $windmill_id;
-        // $masterlog->current = $current;
         $masterlog->voltage = $voltage;
         $masterlog->power = $voltage * $voltage;
         $masterlog->humidity = $humidity;

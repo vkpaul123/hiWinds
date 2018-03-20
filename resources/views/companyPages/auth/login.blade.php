@@ -54,19 +54,10 @@
 	
 	<a href="{{ route('password.request') }}">I forgot my password</a>
 
-	<div class="social-auth-links text-center">
-		<p>- OR -</p>
-		<a href="/login/facebook" class="btn btn-block btn-social btn-facebook"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
-		<a href="/login/google" class="btn btn-block btn-social btn-google"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
-		<a href="/login/twitter" class="btn btn-block btn-social btn-twitter"><i class="fa fa-twitter"></i> Sign in using Twitter</a>
-		<a href="/login/linkedin" class="btn btn-block btn-social btn-linkedin"><i class="fa fa-linkedin"></i> Sign in using LinkedIn</a>
-	</div>
-	<!-- /.social-auth-links -->
-
 	<div class="text-center">
 		<p>- OR -</p>
 		<a href="{{ route('register') }}" class="text-center">
-			<button class="btn btn-info">Register a new membership</button>
+			<button class="btn btn-info btn-lg"><strong>Register a new membership</strong></button>
 		</a>
 	</div>
 

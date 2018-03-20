@@ -91,7 +91,7 @@
 							<div class="col-md-6 col-lg-6">
 								<div class="box box-success">
 									<div class="box-header with-border">
-										<h4 class="text-success">Humity</h4>
+										<h4 class="text-success">Humidity</h4>
 									</div>
 									<div class="panel-body">
 										<div id="interactive-humidity" style="height: 300px"></div>

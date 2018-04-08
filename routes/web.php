@@ -36,6 +36,7 @@ Route::group(['namespace' => 'User'], function() {
 	Route::resource('/address','AddressController');
 
 	Route::resource('/windmill','WindmillController');
+	Route::get('/windmill/show/{id}/loadMonthlyGraph', 'WindmillController@loadMonthlyGraph')->name('windmill.monthlyPower.graph');
 	Route::resource('/windmillAddress', 'WindmillAddressController');
 	Route::get('/windmill/{id}/log', 'SensorDataController@showWindmillLog')->name('windmill.log');
 	Route::get('/windmill/{id}/log/load', 'SensorDataController@loadGraph')->name('windmill.log.graphs');
@@ -48,7 +49,7 @@ Route::group(['namespace' => 'User'], function() {
 	Route::post('/windmill/excel/upload', 'WindmillExcelUploadController@uploadWindmills')->name('windmill.excel.upload');
 	Route::get('/windmill/get/uploadTemplate', 'WindmillController@downloadUploadTemplate')->name('windmill.excel.downloadTemplate');
 
-	Route::post('/home/runPython/', 'PythonRunnerTestController@pythonScript')->name('python.test.url');
+	Route::get('/home/runPython/{id}', 'PythonRunnerTestController@pythonScript')->name('python.test.url');
 });
 
 //	ADMIN Routes

@@ -244,80 +244,31 @@
 		<div class="row">
 			<div class="box">
 				<div class="box-header with-border">
-					<div class="h4">Wind-Turbine Stats</div>
+					<div class="h4">Wind-Turbine Stats <small>Past 6 Months in <strong>MiliWatts (mW)</strong></small></div>
 				</div>
 				<div class="box-body">
 					<div id="bar-chart" style="height: 300px"></div>
+				</div>
+
+				<div class="box-footer">
+					<a href="" class="btn pull-right btn-danger" onclick="
+		   				if(confirm('Are You Sure, you want to delete this record?')) {
+		    				event.preventDefault();
+		    				document.getElementById('delete-windmill').submit();
+		  				}
+		  				else {
+		    				event.preventDefault();
+		  				}
+		  			"><strong>Delete Wind-Turbine</strong></a>
+		  			<form method="post" id="delete-windmill" action="{{ route('windmill.destroy', $windmill->id) }}" style="display: none;">
+		  			  {{ csrf_field() }}
+		  			  {{ method_field('DELETE') }}
+		  			</form>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	{{-- HAS BUGS --}}
-	<div class="box">
-		<div class="box-header with-border">
-			<h3><strong class="text-success">Map Location</strong></h3>
-			<button onclick="initialize()" class="btn btn-warning pull-right"><strong>Load Map</strong> <small>Remove this when the map is fixed</small></button>
-		</div>
-
-		<div class="box-body">
-			<!-- Google map -->
-			<div id="map_canvas" class="wow bounceInDown animated" data-wow-duration="500ms"></div>
-			<!-- End Google map -->
-			<script>
-			 	function initialize() {
-			 	    var myLatLng = new google.maps.LatLng(12.935549, 77.605885);
-
-			 	    var mapOptions = {
-			 	        zoom: 16,
-			 	        center: myLatLng,
-			 	        disableDefaultUI: true,
-			 	        scrollwheel: false,
-			 	        navigationControl: false,
-			 	        mapTypeControl: false,
-			 	        scaleControl: false,
-			 	        draggable: false,
-			 	        mapTypeControlOptions: {
-			 	            mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'roadatlas']
-			 	        }
-			 	    };
-
-			 	    var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
-
-
-			 	    var marker = new google.maps.Marker({
-			 	        position: myLatLng,
-			 	        map: map,
-			 	        // icon: 'img/location-icon.png',
-			 	        title: '',
-			 	    });
-			 	    google.maps.event.addDomListener(window, "resize", function() {
-			 	 			var center = map.getCenter();
-			 	 			google.maps.event.trigger(map, "resize");
-			 	 			map.setCenter(center);
-			 	 		});
-			 	// google.maps.event.addDomListener(window, "load", initialize);
-			 	}
-
-			 </script>
-		</div>
-
-		<div class="box-footer">
-			<a href="" class="btn pull-right btn-danger" onclick="
-   				if(confirm('Are You Sure, you want to delete this record?')) {
-    				event.preventDefault();
-    				document.getElementById('delete-windmill').submit();
-  				}
-  				else {
-    				event.preventDefault();
-  				}
-  			"><strong>Delete Wind-Turbine</strong></a>
-  			<form method="post" id="delete-windmill" action="{{ route('windmill.destroy', $windmill->id) }}" style="display: none;">
-  			  {{ csrf_field() }}
-  			  {{ method_field('DELETE') }}
-  			</form>
-		</div>
-	</div>
 </section>
 
 @endsection
@@ -333,34 +284,44 @@
 
 	<script>
 		$(function() {
-			/*
-		     * BAR CHART
-		     * ---------
-		     */
 
-		    var bar_data = {
-		      data : [['January', 10], ['February', 8], ['March', 4], ['April', 13], ['May', 17], ['June', 9]],
-		      color: '#00a65a'
-		    }
-		    $.plot('#bar-chart', [bar_data], {
-		      grid  : {
-		        borderWidth: 1,
-		        borderColor: '#f3f3f3',
-		        tickColor  : '#f3f3f3'
-		      },
-		      series: {
-		        bars: {
-		          show    : true,
-		          barWidth: 0.5,
-		          align   : 'center'
-		        }
-		      },
-		      xaxis : {
-		        mode      : 'categories',
-		        tickLength: 0
-		      }
-		    })
-		    /* END BAR CHART */
+			$.ajax({
+				url: '{{ route('windmill.monthlyPower.graph', $windmill->id) }}',
+				type: 'GET',
+				dataType: 'json',
+				data: {},
+			})
+			.done(function(data) {
+				console.log("success");
+				var arr = Object.values(data);
+				console.log(arr);
+
+				$.plot('#bar-chart', [arr], {
+				  grid  : {
+				    borderWidth: 1,
+				    borderColor: '#f3f3f3',
+				    tickColor  : '#f3f3f3'
+				  },
+				  series: {
+				    bars: {
+				      show    : true,
+				      barWidth: 0.5,
+				      align   : 'center'
+				    }
+				  },
+				  xaxis : {
+				    mode      : 'categories',
+				    tickLength: 0
+				  }
+				})
+				/* END BAR CHART */
+			})
+			.fail(function() {
+				console.log("error");
+			})
+			.always(function() {
+				console.log("complete");
+			});		    
 		})
 	</script>  
 @endsection

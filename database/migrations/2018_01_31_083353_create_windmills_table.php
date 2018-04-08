@@ -25,6 +25,7 @@ class CreateWindmillsTable extends Migration
             $table->double('rotordiameter', 8, 2)->nullable();
 
             $table->string('csvfile')->nullable();
+            $table->double('predictionValue', 8, 5)->nullable();
 
             $table->integer('address_id')->nullable();
 

@@ -50,7 +50,7 @@
 			<div class="box">
 				<div class="box-header with-border">
 					<h3>Graphs</h3>
-          <button id="refresh" class="btn pull-right">Refresh</button>
+          			<button id="refresh" class="btn pull-right">Refresh</button>
 				</div>
 
 				<div class="box-body">
@@ -58,10 +58,25 @@
 						<div class="row">
 							<div class="box box-success">
 								<div class="box-header with-border">
-									<h4 class="text-success">Power</h4>
+									<h4 class="text-success">Power <small>(mW)</small></h4>
 								</div>
 								<div class="panel-body">
 									<div id="interactive-power" style="height: 300px;"></div>
+								</div>
+
+								<div class="box-footer">
+									@isset($windmill->predictionValue)
+									<div class="jumbotron">
+										<h2>
+											<center>
+												Latest Prediction of Power is &nbsp;
+												<span class="text-yellow">
+													<strong>{{ $windmill->predictionValue }} mW</strong>.
+												</span>
+											</center>
+										</h2>
+									</div>
+									@endisset
 								</div>
 							</div>
 						</div>
@@ -69,7 +84,7 @@
 							<div class="col-md-12 col-lg-12">
 								<div class="box box-success">
 									<div class="box-header with-border">
-										<h4 class="text-success">Voltage</h4>
+										<h4 class="text-success">Voltage <small>(mV)</small></h4>
 									</div>
 									<div class="panel-body">
 										<div id="interactive-voltage" style="height: 300px"></div>
@@ -81,7 +96,7 @@
 							<div class="col-md-6 col-lg-6">
 								<div class="box box-success">
 									<div class="box-header with-border">
-										<h4 class="text-success">Temperature</h4>
+										<h4 class="text-success">Temperature <small>(&deg; C)</small></h4>
 									</div>
 									<div class="panel-body">
 										<div id="interactive-temperature" style="height: 300px"></div>
@@ -91,7 +106,7 @@
 							<div class="col-md-6 col-lg-6">
 								<div class="box box-success">
 									<div class="box-header with-border">
-										<h4 class="text-success">Humidity</h4>
+										<h4 class="text-success">Humidity <small>(%)</small></h4>
 									</div>
 									<div class="panel-body">
 										<div id="interactive-humidity" style="height: 300px"></div>
@@ -205,18 +220,25 @@
           .done(function(data) {
             console.log("success");
             var arr = Object.values(data);
-            arr.reverse();
+            var arr2 = Object.values(arr[0]);
+            arr2.reverse();
 
-            var voltageRes=[], powerRes=[], temperatureRes=[], humidityRes=[];
+            var voltageRes=[], powerRes=[], powerPredict=[], temperatureRes=[], humidityRes=[];
 
-            for (var i = 0; i < arr.length; i++) {
-              voltageRes.push([i, arr[i].voltage]);
-              powerRes.push([i, arr[i].power]);
-              temperatureRes.push([i, arr[i].temperature]);
-              humidityRes.push([i, arr[i].humidity]);
+            for (var i = 0; i < arr2.length; i++) {
+              voltageRes.push([i, arr2[i].voltage]);
+              powerRes.push([i, arr2[i].power]);
+              powerPredict.push([i, arr[1]]);
+              temperatureRes.push([i, arr2[i].temperature]);
+              humidityRes.push([i, arr2[i].humidity]);
             }
+            
+            powerPredict = {
+            	data: powerPredict,
+            	color: '#ffc107',
+            };
 
-            var interactive_plot_power = $.plot('#interactive-power', [powerRes], {
+            var interactive_plot_power = $.plot('#interactive-power', [powerRes, powerPredict], {
               grid  : {
                 borderColor: '#f3f3f3',
                 borderWidth: 1,
@@ -232,7 +254,7 @@
               },
               yaxis : {
                 min : 0,
-                max : 1,
+                max : 0.5,
                 show: true
               },
               xaxis : {
@@ -278,7 +300,7 @@
               },
               yaxis : {
                 min : 0,
-                max : 70,
+                max : 60,
                 show: true
               },
               xaxis : {

@@ -21,7 +21,6 @@
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">MAIN NAVIGATION</li>
       <li @yield('sideBarActivator_Home')><a href="{{ route('home') }}"><i class="fa fa-home text-success"></i> <span>Home</span></a></li>
-      <li @yield('sideBarActivator_WindTurbines')><a href="{{ route('windmill.index') }}"><i class="fa fa-industry"></i> <span>Wind-Turbines</span></a></li>
       <li @yield('sideBarActivator_WindTurbines')><a href="{{ route('user.viewProfile') }}"><i class="fa fa-user"></i> <span>Profile</span></a></li>
       <li @yield('sideBarActivator_WindTurbines')><a href="{{ route('logout') }}"
         onclick="event.preventDefault();

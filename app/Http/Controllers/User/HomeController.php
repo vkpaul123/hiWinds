@@ -31,6 +31,6 @@ class HomeController extends Controller
             return redirect(route('address.create'));
         }
         
-        return view('companyPages.home');
+        return redirect(route('windmill.index'));
     }
 }

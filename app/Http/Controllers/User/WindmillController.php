@@ -4,7 +4,9 @@ namespace App\Http\Controllers\User;
 
 use App\Address;
 use App\Http\Controllers\Controller;
+use App\Masterlog;
 use App\Windmill;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -159,5 +161,30 @@ class WindmillController extends Controller
         ];
 
         return response($file, 200, $headers);
+    }
+
+    public function loadMonthlyGraph($id) {
+        $last6months =  Masterlog::select("created_at")->where("created_at",">", Carbon::now()->subMonths(6))->where("windmill_id", $id)->orderby("created_at")->get();
+
+        $months = [];
+        foreach ($last6months as $month) {
+            array_push($months, $month->created_at->format('F-Y'));
+        }
+
+        $months = array_values(array_unique($months));
+
+        $monthlyPowerAvg = [];
+        foreach ($months as $month) {
+            $powersForMonth = Masterlog::whereYear("created_at", "=", Carbon::parse($month)->year)
+                                        ->whereMonth("created_at", "=", Carbon::parse($month)->month)
+                                        ->get();
+            $powerSum = 0;
+            foreach ($powersForMonth as $powerForMonth) {
+                $powerSum += $powerForMonth->power;
+            }
+            array_push($monthlyPowerAvg, [$month, $powerSum/$powersForMonth->count()]);
+        }
+
+        return json_encode($monthlyPowerAvg);
     }
 }

@@ -75,6 +75,18 @@
 												</span>
 											</center>
 										</h2>
+										<hr>
+										<h3>
+											<center>
+												Average Power generation is <span class="text-purple" id="avgPower"></span>.
+											</center>
+										</h3>
+										<hr>
+										<h4>
+											<center>
+												The difference between the Prediction and Actual Values is <span class="text-warning" id="difference1"></span>, which is <span class="text-danger" id="percentagediff1"></span>.
+											</center>
+										</h4>
 									</div>
 									@endisset
 								</div>
@@ -232,7 +244,19 @@
               temperatureRes.push([i, arr2[i].temperature]);
               humidityRes.push([i, arr2[i].humidity]);
             }
+
+            var total = 0;
+            for(var i = 0; i < powerRes.length; i++) {
+                total += powerRes[i][1];
+            }
+            var avg = Math.round((total / powerRes.length) * 10000) / 10000;
             
+            document.getElementById('avgPower').innerHTML = avg + ' mW';
+            var powerDifference = Math.abs(powerPredict[0][1] - avg);
+            document.getElementById('difference1').innerHTML = (Math.round(powerDifference * 10000) / 10000)  + ' mW';
+            var percentagediff = (powerDifference / powerPredict[0][1]) * 100;
+            document.getElementById('percentagediff1').innerHTML = (Math.round(percentagediff * 10000) / 10000) + ' %';
+
             powerPredict = {
             	data: powerPredict,
             	color: '#ffc107',
